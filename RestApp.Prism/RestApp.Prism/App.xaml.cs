@@ -5,6 +5,8 @@ using RestApp.Prism.Views;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Forms;
+using RestApp.Common.Services;
+using Syncfusion.Licensing;
 
 namespace RestApp.Prism
 {
@@ -17,17 +19,19 @@ namespace RestApp.Prism
 
         protected override async void OnInitialized()
         {
+            SyncfusionLicenseProvider.RegisterLicense("MzQ4MDEyQDMxMzgyZTMzMmUzMG8zNlRQQmZGUHFVK1RGNnhSL2owcHZsZGl4NUxPclArbm9TWXZlWGZuWEE9");
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/RestaurantsPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
-
+            containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<RestaurantsPage, RestaurantsPageViewModel>();
         }
     }
 }

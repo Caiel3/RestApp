@@ -3,15 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30404.54
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApp.Common", "RestApp.Common\RestApp.Common.csproj", "{BC67F7A0-60AF-44DE-B90A-5A49E40324AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApp.Common", "RestApp.Common\RestApp.Common.csproj", "{BC67F7A0-60AF-44DE-B90A-5A49E40324AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApp.Prism", "..\RestApp.Prism\RestApp.Prism\RestApp.Prism.csproj", "{A933A4A1-E367-40CA-85BE-78C823152EFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApp.Prism", "..\RestApp.Prism\RestApp.Prism\RestApp.Prism.csproj", "{A933A4A1-E367-40CA-85BE-78C823152EFB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BC67F7A0-60AF-44DE-B90A-5A49E40324AA} = {BC67F7A0-60AF-44DE-B90A-5A49E40324AA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApp.Prism.Android", "..\RestApp.Prism\RestApp.Prism.Android\RestApp.Prism.Android.csproj", "{D92CB500-76AB-4AAD-B63A-0B8321E5CA2F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApp.Prism.iOS", "..\RestApp.Prism\RestApp.Prism.iOS\RestApp.Prism.iOS.csproj", "{A7B28894-AB0D-4DB5-AE90-22776DE18CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReatApp.Web", "..\ReatApp.Web\ReatApp.Web.csproj", "{B99F89E0-7F7F-4FFA-80E8-770F3D25DE56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReatApp.Web", "..\ReatApp.Web\ReatApp.Web.csproj", "{B99F89E0-7F7F-4FFA-80E8-770F3D25DE56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
