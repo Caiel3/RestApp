@@ -109,4 +109,25 @@
   <data name="Accept" xml:space="preserve">
     <value>Accept</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="ModifyUser" xml:space="preserve">
+    <value>Modify User</value>
+  </data>
+  <data name="ViewReservation" xml:space="preserve">
+    <value>View reservations</value>
+  </data>
+  <data name="AddPointSale" xml:space="preserve">
+    <value>Add point of sale</value>
+  </data>
+  <data name="RestaurantsLocation" xml:space="preserve">
+    <value>Restaurants Location</value>
+  </data>
+  <data name="BussinesHour" xml:space="preserve">
+    <value>Bussines hour</value>
+  </data>
 </root>

@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace RestApp.Prism.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RestaurantsPage : ContentPage
+    public partial class ViewReservationPage : ContentPage
     {
-        public RestaurantsPage()
+        public ViewReservationPage()
         {
             InitializeComponent();
         }

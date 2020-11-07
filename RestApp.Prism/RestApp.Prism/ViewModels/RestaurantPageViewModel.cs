@@ -7,12 +7,12 @@ using System.Text;
 
 namespace RestApp.Prism.ViewModels
 {
-    class RestaurantsPageViewModel:ViewModelBase
+    class RestaurantPageViewModel:ViewModelBase
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
 
-        public RestaurantsPageViewModel(INavigationService navigationService, IApiService apiService)
+        public RestaurantPageViewModel(INavigationService navigationService, IApiService apiService)
             :base(navigationService)
         {
             _navigationService = navigationService;

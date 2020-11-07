@@ -129,4 +129,25 @@
   <data name="Accept" xml:space="preserve">
     <value>Accetta</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Accesso</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Disconnetti</value>
+  </data>
+  <data name="ModifyUser" xml:space="preserve">
+    <value>Modifica utente</value>
+  </data>
+  <data name="ViewReservation" xml:space="preserve">
+    <value>Visualizza prenotazioni</value>
+  </data>
+  <data name="AddPointSale" xml:space="preserve">
+    <value>Punto vendita</value>
+  </data>
+  <data name="BussinesHour" xml:space="preserve">
+    <value>Ora di affari!</value>
+  </data>
+  <data name="RestaurantsLocation" xml:space="preserve">
+    <value>Posizione dei ristoranti</value>
+  </data>
 </root>

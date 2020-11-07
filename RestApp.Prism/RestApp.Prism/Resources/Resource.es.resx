@@ -129,4 +129,25 @@
   <data name="Accept" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Cerrar sesión</value>
+  </data>
+  <data name="ModifyUser" xml:space="preserve">
+    <value>Modificar usuario</value>
+  </data>
+  <data name="ViewReservation" xml:space="preserve">
+    <value>Ver reservas</value>
+  </data>
+  <data name="AddPointSale" xml:space="preserve">
+    <value>Agregar punto de venta</value>
+  </data>
+  <data name="BussinesHour" xml:space="preserve">
+    <value>Hora de trabajo</value>
+  </data>
+  <data name="RestaurantsLocation" xml:space="preserve">
+    <value>Ubicacion de restaurantes</value>
+  </data>
 </root>

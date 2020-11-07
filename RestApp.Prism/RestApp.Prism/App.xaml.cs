@@ -22,7 +22,7 @@ namespace RestApp.Prism
             SyncfusionLicenseProvider.RegisterLicense("MzQ4MDEyQDMxMzgyZTMzMmUzMG8zNlRQQmZGUHFVK1RGNnhSL2owcHZsZGl4NUxPclArbm9TWXZlWGZuWEE9");
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/RestaurantsPage");
+           await NavigationService.NavigateAsync($"{nameof(RestAppMasterDetailPage)}/NavigationPage/{nameof(RestaurantPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -31,7 +31,14 @@ namespace RestApp.Prism
             containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
-            containerRegistry.RegisterForNavigation<RestaurantsPage, RestaurantsPageViewModel>();
+            containerRegistry.RegisterForNavigation<RestaurantPage, RestaurantPageViewModel>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<ViewReservationPage, ViewReservationPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddPointSalePage, AddPointSalePageViewModel>();
+            containerRegistry.RegisterForNavigation<RestaurantLocationPage, RestaurantLocationPageViewModel>();
+            containerRegistry.RegisterForNavigation<BussinesHourPage, BussinesHourPageViewModel>();
+            containerRegistry.RegisterForNavigation<RestAppMasterDetailPage, RestAppMasterDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
         }
     }
 }

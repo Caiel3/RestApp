@@ -22,7 +22,7 @@ namespace RestApp.Prism.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resource {
+    internal class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace RestApp.Prism.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RestApp.Prism.Resources.Resource", typeof(Resource).Assembly);
@@ -51,7 +51,7 @@ namespace RestApp.Prism.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,16 +63,34 @@ namespace RestApp.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Accept.
         /// </summary>
-        public static string Accept {
+        internal static string Accept {
             get {
                 return ResourceManager.GetString("Accept", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add point of sale.
+        /// </summary>
+        internal static string AddPointSale {
+            get {
+                return ResourceManager.GetString("AddPointSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bussines hour.
+        /// </summary>
+        internal static string BussinesHour {
+            get {
+                return ResourceManager.GetString("BussinesHour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check the internet connection..
         /// </summary>
-        public static string ConnectionError {
+        internal static string ConnectionError {
             get {
                 return ResourceManager.GetString("ConnectionError", resourceCulture);
             }
@@ -81,18 +99,63 @@ namespace RestApp.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
-        public static string Error {
+        internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        internal static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modify User.
+        /// </summary>
+        internal static string ModifyUser {
+            get {
+                return ResourceManager.GetString("ModifyUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restaurants.
         /// </summary>
-        public static string Restaurants {
+        internal static string Restaurants {
             get {
                 return ResourceManager.GetString("Restaurants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restaurants Location.
+        /// </summary>
+        internal static string RestaurantsLocation {
+            get {
+                return ResourceManager.GetString("RestaurantsLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View reservations.
+        /// </summary>
+        internal static string ViewReservation {
+            get {
+                return ResourceManager.GetString("ViewReservation", resourceCulture);
             }
         }
     }
