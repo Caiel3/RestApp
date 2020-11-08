@@ -65,7 +65,7 @@
                         Text="{i18n:Translate Login}"/>
                 <Button Command="{Binding RegisterCommand}" 
                         IsEnabled="{Binding IsEnabled}"
-                        Text="{i18n:Translate Register}"
+                        Text="{i18n:Translate RegisterFacebook}"
                         Style="{StaticResource DangerButton}"/>
             </StackLayout>
         </StackLayout>

@@ -36,7 +36,7 @@
             <Style x:Key="DangerButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource ColorDanger}" />
             </Style>
-
+            <x:String x:Key="UrlNoImage">https://onsaleprepweb.azurewebsites.net/images/noimage.png</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

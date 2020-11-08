@@ -7,6 +7,7 @@ using Xamarin.Essentials.Implementation;
 using Xamarin.Forms;
 using RestApp.Common.Services;
 using Syncfusion.Licensing;
+using RestApp.Prism.Helpers;
 
 namespace RestApp.Prism
 {
@@ -29,6 +30,7 @@ namespace RestApp.Prism
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.Register<IApiService, ApiService>();
+            containerRegistry.Register<IRegexHelper, RegexHelper>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<RestaurantPage, RestaurantPageViewModel>();
@@ -43,6 +45,7 @@ namespace RestApp.Prism
             containerRegistry.RegisterForNavigation<QualificationPage, QualificationPageViewModel>();
             containerRegistry.RegisterForNavigation<CataloguePage, CataloguePageViewModel>();
             containerRegistry.RegisterForNavigation<RestaurantTabbedPage, RestaurantTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Navigation;
 using RestApp.Prism.Helpers;
+using RestApp.Prism.Views;
 
 namespace RestApp.Prism.ViewModels
 {
@@ -12,11 +13,13 @@ namespace RestApp.Prism.ViewModels
         private DelegateCommand _loginCommand;
         private DelegateCommand _registerCommand;
         private DelegateCommand _forgotPasswordCommand;
+        private readonly INavigationService _navigationService;
 
         public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = Languages.Login;
             IsEnabled = true;
+            _navigationService = navigationService;
         }
 
         public DelegateCommand LoginCommand => _loginCommand ?? (_loginCommand = new DelegateCommand(LoginAsync));
@@ -71,9 +74,9 @@ namespace RestApp.Prism.ViewModels
             //TODO: Pending
         }
 
-        private void RegisterAsync()
+        private async void RegisterAsync()
         {
-            //TODO: Pending
+            await _navigationService.NavigateAsync(nameof(RegisterPage));
         }
     }
 
