@@ -150,4 +150,34 @@
   <data name="RestaurantsLocation" xml:space="preserve">
     <value>Ubicacion de restaurantes</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Correo electrónico o contraseña incorrectos.</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Cargando</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Introduzca su dirección de correo electrónico</value>
+  </data>
+  <data name="EmailError" xml:space="preserve">
+    <value>Debes introducir una dirección de correo válida.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="PasswordPlaceHolder" xml:space="preserve">
+    <value>Escriba la contraseña</value>
+  </data>
+  <data name="PasswordError" xml:space="preserve">
+    <value>Debes ingresar tu contraseña</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>¿Olvidó la contraseña?</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Reg. nuevo usuario</value>
+  </data>
 </root>

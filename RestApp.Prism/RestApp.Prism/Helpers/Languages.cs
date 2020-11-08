@@ -19,11 +19,8 @@ namespace RestApp.Prism.Helpers
         }
 
         public static string Culture { get; set; }
-
         public static string Accept => Resource.Accept;
-
         public static string ConnectionError => Resource.ConnectionError;
-
         public static string Error => Resource.Error;
         public static string Restaurants => Resource.Restaurants;
         public static string Login => Resource.Login;
@@ -32,7 +29,17 @@ namespace RestApp.Prism.Helpers
         public static string ViewReservation => Resource.ViewReservation;
         public static string AddPoinSale => Resource.AddPointSale;
         public static string RestaurantsLocation => Resource.RestaurantsLocation;
-        public static string BussinesHour => Resource.BussinesHour;        
+        public static string BussinesHour => Resource.BussinesHour;
+        public static string Email => Resource.Email;
+        public static string EmailError => Resource.EmailError;
+        public static string EmailPlaceHolder => Resource.EmailPlaceHolder;
+        public static string Password => Resource.Password;
+        public static string PasswordError => Resource.PasswordError;
+        public static string PasswordPlaceHolder => Resource.PasswordPlaceHolder;
+        public static string ForgotPassword => Resource.ForgotPassword;
+        public static string LoginError => Resource.LoginError;
+        public static string Loading => Resource.Loading;
+
     }
 
 }
