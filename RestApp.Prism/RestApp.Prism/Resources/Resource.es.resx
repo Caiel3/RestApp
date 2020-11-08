@@ -180,4 +180,13 @@
   <data name="Register" xml:space="preserve">
     <value>Reg. nuevo usuario</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Catalogo</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Ubicación</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Calificación</value>
+  </data>
 </root>

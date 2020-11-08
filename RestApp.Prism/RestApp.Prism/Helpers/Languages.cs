@@ -39,6 +39,9 @@ namespace RestApp.Prism.Helpers
         public static string ForgotPassword => Resource.ForgotPassword;
         public static string LoginError => Resource.LoginError;
         public static string Loading => Resource.Loading;
+        public static string Catalogue => Resource.Catalogue;
+        public static string Qualification => Resource.Qualification;
+        public static string Location => Resource.Location;
 
     }
 

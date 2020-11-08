@@ -39,6 +39,10 @@ namespace RestApp.Prism
             containerRegistry.RegisterForNavigation<BussinesHourPage, BussinesHourPageViewModel>();
             containerRegistry.RegisterForNavigation<RestAppMasterDetailPage, RestAppMasterDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
+            containerRegistry.RegisterForNavigation<LocationDetailsPage, LocationDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<QualificationPage, QualificationPageViewModel>();
+            containerRegistry.RegisterForNavigation<CataloguePage, CataloguePageViewModel>();
+            containerRegistry.RegisterForNavigation<RestaurantTabbedPage, RestaurantTabbedPageViewModel>();
         }
     }
 }

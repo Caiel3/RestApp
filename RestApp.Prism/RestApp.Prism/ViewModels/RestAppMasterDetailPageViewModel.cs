@@ -41,7 +41,7 @@ namespace RestApp.Prism.ViewModels
             new Menu
             {
                 Icon = "ic_restaurant",
-                PageName = $"{nameof(RestaurantPage)}",
+                PageName = $"{nameof(RestaurantTabbedPage)}",
                 Title = Languages.Restaurants
             },
             new Menu

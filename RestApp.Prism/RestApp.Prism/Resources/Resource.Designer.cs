@@ -88,6 +88,15 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Catalogue.
+        /// </summary>
+        internal static string Catalogue {
+            get {
+                return ResourceManager.GetString("Catalogue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check the internet connection..
         /// </summary>
         internal static string ConnectionError {
@@ -151,6 +160,15 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        internal static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string Login {
@@ -210,6 +228,15 @@ namespace RestApp.Prism.Resources {
         internal static string PasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("PasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Qualifications.
+        /// </summary>
+        internal static string Qualification {
+            get {
+                return ResourceManager.GetString("Qualification", resourceCulture);
             }
         }
         
