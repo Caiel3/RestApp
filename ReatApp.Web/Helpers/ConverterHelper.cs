@@ -15,11 +15,7 @@ namespace ReatApp.Web.Helpers
                 Id = isNew ? 0 : model.Id,
                 ImageId = imageId,
                 Name = model.Name,
-                Description = model.Description,
-                IsActive = model.IsActive,
-                IsStarred = model.IsStarred,
-                Price = model.Price,
-                RestaurantImages = model.RestaurantImages
+                Description = model.Description
             };
         }
 
@@ -30,11 +26,7 @@ namespace ReatApp.Web.Helpers
                 Id = restaurant.Id,
                 ImageId = restaurant.ImageId,
                 Name = restaurant.Name,
-                Description = restaurant.Description,
-                IsActive = restaurant.IsActive,
-                IsStarred = restaurant.IsStarred,
-                Price = restaurant.Price,
-                RestaurantImages = restaurant.RestaurantImages
+                Description = restaurant.Description
             };
         }
 

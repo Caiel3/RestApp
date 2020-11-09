@@ -18,27 +18,14 @@ namespace RestApp.Common.Entities
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:C2}")]
-        public decimal Price { get; set; }
-
-        [DisplayName("Is Active")]
-        public bool IsActive { get; set; }
-
-        [DisplayName("Is Starred")]
-        public bool IsStarred { get; set; }
-
         [Display(Name = "Image")]
         public Guid ImageId { get; set; }
 
-
-        public ICollection<RestaurantImage> RestaurantImages { get; set; }
-
-        [DisplayName("Product Images Number")]
-        public int RestaurantImagesNumber => RestaurantImages == null ? 0 : RestaurantImages.Count;
-
+        //TODO: Pending to put the correct paths
         [Display(Name = "Image")]
-        public string ImageFullPath => RestaurantImages == null || RestaurantImages.Count == 0
+        public string ImageFullPath => ImageId == Guid.Empty
             ? $"https://onsalecarmona.azurewebsites.net/images/noimage.png"
-            : RestaurantImages.FirstOrDefault().ImageFullPath;
+            : $"https://onsalecarmona.blob.core.windows.net/categories/{ImageId}";
+
     }
 }

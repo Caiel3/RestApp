@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReatApp.Web.Data;
 
 namespace ReatApp.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201108234333_Usershjgfkghfjhgfjhg")]
+    partial class Usershjgfkghfjhgfjhg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -229,7 +231,11 @@ namespace ReatApp.Web.Migrations
 
                     b.Property<Guid>("ImageId");
 
+                    b.Property<int?>("RestaurantId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("RestaurantId");
 
                     b.ToTable("RestaurantImages");
                 });
@@ -277,6 +283,13 @@ namespace ReatApp.Web.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("RestApp.Common.Entities.RestaurantImage", b =>
+                {
+                    b.HasOne("RestApp.Common.Entities.Restaurant")
+                        .WithMany("RestaurantImages")
+                        .HasForeignKey("RestaurantId");
                 });
 #pragma warning restore 612, 618
         }
