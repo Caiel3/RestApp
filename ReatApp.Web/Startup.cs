@@ -70,6 +70,7 @@ namespace ReatApp.Web
             services.AddScoped<IBlobHelper, BlobHelper>();
             services.AddScoped<IConverterHelper, ConverterHelper>();
             services.AddScoped<IUserHelper, UserHelper>();
+            services.AddScoped<ICombosHelper, CombosHelper>();
 
             services.AddTransient<SeedDb>();
 

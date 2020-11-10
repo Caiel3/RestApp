@@ -21,7 +21,7 @@ namespace RestApp.Common.Entities
         [Display(Name = "Image")]
         public string ImageFullPath => ImageId == Guid.Empty
             ? $"https://onsalecarmona.azurewebsites.net/images/noimage.png"
-            : $"https://onsalecarmona.blob.core.windows.net/categories/{ImageId}";
+            : $"https://programaciondistribuida.blob.core.windows.net/categories/{ImageId}";
 
     }
 }

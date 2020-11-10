@@ -11,9 +11,10 @@ namespace ReatApp.Web.Helpers
 
         RestaurantViewModel ToRestaurantViewModel(Restaurant Restaurant);
 
-        //Task<Restaurant> ToRestaurantAsync(RestaurantViewModel model, bool isNew);
+        Task<PointSale> ToPointSaleAsync(PointSaleViewModel model, bool isNew);
 
-        //RestaurantViewModel ToRestaurantViewModel(Restaurant Restaurant);
+        PointSaleViewModel ToPointSaleViewModel(PointSale pointsale);
+
 
     }
 

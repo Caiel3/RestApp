@@ -12,7 +12,10 @@ namespace ReatApp.Web.Data
         }
         public DbSet<Restaurant> Restaurants { get; set; }
 
-        public DbSet<RestaurantImage> RestaurantImages { get; set; }
+        public DbSet<PointSale> PointSale { get; set; }
+
+        public DbSet<PointSaleImage> PointSaleImages { get; set; }
+
 
 
 
@@ -23,6 +26,12 @@ namespace ReatApp.Web.Data
             modelBuilder.Entity<Restaurant>()
               .HasIndex(t => t.Name)
               .IsUnique();
+
+
+            modelBuilder.Entity<PointSale>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
+
 
         }
     }
