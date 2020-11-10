@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestApp.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
