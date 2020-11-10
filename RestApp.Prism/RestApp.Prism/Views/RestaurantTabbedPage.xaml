@@ -1,0 +1,15 @@
+﻿<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+        	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="http://prismlibrary.com"
+        	xmlns:local="clr-namespace:RestApp.Prism.Views"
+        	prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="RestApp.Prism.Views.RestaurantTabbedPage"
+        	Title="{Binding Title}">
+
+    <TabbedPage.Children>
+        <local:CataloguePage />
+        <local:LocationDetailsPage />
+        <local:QualificationPage />
+    </TabbedPage.Children>
+
+</TabbedPage>
