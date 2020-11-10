@@ -2,6 +2,8 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:prism="http://prismlibrary.com"
+                  xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                  xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                   prism:ViewModelLocator.AutowireViewModel="True"
                   x:Class="RestApp.Prism.Views.RestAppMasterDetailPage">
 
@@ -17,9 +19,28 @@
                 </OnPlatform>
             </ContentPage.Padding>
 
-            <StackLayout Padding="20">
-                <Image HeightRequest="150"
-                       Source="ic_launcher"/>
+            <StackLayout Padding="20">               
+                <StackLayout Orientation="Horizontal">
+                    <Image HeightRequest="80"
+                         Source="ic_launcher"/>
+                    <ffimageloading:CachedImage Aspect="AspectFill"
+                                    Source="{Binding User.ImageFullPath}" 
+                                    CacheDuration= "50"
+                                    HeightRequest="100"
+                                    Margin="5"
+                                    RetryCount= "3"
+                                    RetryDelay= "600"
+                                    WidthRequest="100">
+                        <ffimageloading:CachedImage.Transformations>
+                            
+                        </ffimageloading:CachedImage.Transformations>
+                    </ffimageloading:CachedImage>
+                </StackLayout>
+
+                <Label FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="{Binding User.FullName}"/>
+
                 <ListView BackgroundColor="Transparent"
                 	      ItemsSource="{Binding Menus}"
                 	      HasUnevenRows="True"

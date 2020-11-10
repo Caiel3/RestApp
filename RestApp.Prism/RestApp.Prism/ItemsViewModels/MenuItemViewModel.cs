@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Navigation;
+using RestApp.Common.Helpers;
 using RestApp.Common.Models;
 using RestApp.Prism.Views;
 using System;
@@ -22,6 +23,11 @@ namespace RestApp.Prism.ItemsViewModels
 
         private async void SelectMenuAsync()
         {
+            if (PageName == nameof(LoginPage) && Settings.IsLogin)
+            {
+                Settings.IsLogin = false;
+                Settings.Token = null;
+            }
             await _navigationService.NavigateAsync($"/{nameof(RestAppMasterDetailPage)}/NavigationPage/{PageName}");
         }
     }

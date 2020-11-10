@@ -1,5 +1,8 @@
-﻿using Prism.Navigation;
+﻿using Newtonsoft.Json;
+using Prism.Navigation;
+using RestApp.Common.Helpers;
 using RestApp.Common.Models;
+using RestApp.Common.Responses;
 using RestApp.Prism.Helpers;
 using RestApp.Prism.ItemsViewModels;
 using RestApp.Prism.Views;
@@ -14,13 +17,30 @@ namespace RestApp.Prism.ViewModels
     public class RestAppMasterDetailPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+        private UserResponse _user;
 
         public RestAppMasterDetailPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             _navigationService = navigationService;
             LoadMenus();
+            LoadUser();
         }
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
+
+        public UserResponse User
+        {
+            get => _user;
+            set => SetProperty(ref _user, value);
+        }
+
+        private void LoadUser()
+        {
+            if (Settings.IsLogin)
+            {
+                TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+                User = token.User;
+            }
+        }
 
         private void LoadMenus()
         {
@@ -30,7 +50,7 @@ namespace RestApp.Prism.ViewModels
             {
                 Icon = "ic_fingerprint",
                 PageName = $"{nameof(LoginPage)}",
-                Title = Languages.Login
+                Title = Settings.IsLogin? Languages.Logout : Languages.Login
             },
             new Menu
             {
