@@ -1,7 +1,13 @@
-﻿using Prism.Commands;
+﻿using Newtonsoft.Json;
+using Prism.Commands;
 using Prism.Navigation;
+using RestApp.Common.Helpers;
+using RestApp.Common.Request;
+using RestApp.Common.Responses;
+using RestApp.Common.Services;
 using RestApp.Prism.Helpers;
 using RestApp.Prism.Views;
+using Xamarin.Essentials;
 
 namespace RestApp.Prism.ViewModels
 {
@@ -14,12 +20,15 @@ namespace RestApp.Prism.ViewModels
         private DelegateCommand _registerCommand;
         private DelegateCommand _forgotPasswordCommand;
         private readonly INavigationService _navigationService;
+        private readonly IApiService _apiService;
 
-        public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
+        public LoginPageViewModel(INavigationService navigationService,IApiService apiService) 
+            : base(navigationService)
         {
             Title = Languages.Login;
             IsEnabled = true;
             _navigationService = navigationService;
+            _apiService = apiService;
         }
 
         public DelegateCommand LoginCommand => _loginCommand ?? (_loginCommand = new DelegateCommand(LoginAsync));
@@ -67,6 +76,45 @@ namespace RestApp.Prism.ViewModels
                     Languages.Accept);
                 return;
             }
+            IsRunning = true;
+            IsEnabled = false;
+
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                IsRunning = false;
+                IsEnabled = true;
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.ConnectionError, Languages.Accept);
+                return;
+            }
+
+            string url = App.Current.Resources["UrlAPI"].ToString();
+            TokenRequest request = new TokenRequest
+            {
+                Password = Password,
+                Username = Email
+            };
+
+            Response response = await _apiService.GetTokenAsync(url, "api", "/Account/CreateToken", request);
+            IsRunning = false;
+            IsEnabled = true;
+
+            if (!response.IsSuccess)
+            {
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.LoginError, Languages.Accept);
+                Password = string.Empty;
+                return;
+            }
+
+            TokenResponse token = (TokenResponse)response.Result;
+            Settings.Token = JsonConvert.SerializeObject(token);
+            Settings.IsLogin = true;
+
+            IsRunning = false;
+            IsEnabled = true;
+
+            await _navigationService.NavigateAsync($"/{nameof(RestAppMasterDetailPage)}/NavigationPage/{nameof(RestaurantPage)}");
+            Password = string.Empty;
+
         }
 
         private void ForgotPasswordAsync()
