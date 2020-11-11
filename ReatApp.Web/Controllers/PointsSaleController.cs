@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReatApp.Web.Data;
 using ReatApp.Web.Helpers;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace ReatApp.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PointsSaleController : Controller
     {
         private readonly DataContext _context;
