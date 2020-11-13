@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ReatApp.Web.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, RestaurantAdmin")]
     public class PointsSaleController : Controller
     {
         private readonly DataContext _context;

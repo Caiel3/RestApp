@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
-                <a asp-action="ChangePassword" class="btn btn-warning">Change Password</a>
+                <a asp-action="ChangePasswordMVC" class="btn btn-warning">Change Password</a>
             </div>
         </form>
     </div>
@@ -27,9 +27,9 @@
     </div>
 </div>
 
-@*@section Scripts {
+@section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         $(document).ready(function () {
             $("#CountryId").change(function () {
                 $("#DepartmentId").empty();
@@ -79,5 +79,5 @@
                 return false;
             })
         });
-    </script>
-}*@
+    </script>*@
+}
