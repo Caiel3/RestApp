@@ -17,6 +17,7 @@ namespace RestApp.Common.Entities
         [Display(Name = "Image")]
         public Guid ImageId { get; set; }
 
+
         //TODO: Pending to put the correct paths
         [Display(Name = "Image")]
         public string ImageFullPath => ImageId == Guid.Empty

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ReatApp.Web.Models
 {
-    public class AddPointSaleImageViewModel
+    public class AddCatalogueImageViewModel
     {
         public int PointSaleId { get; set; }
 

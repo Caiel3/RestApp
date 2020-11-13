@@ -24,7 +24,7 @@ namespace ReatApp.Web.Controllers.API
         {
             return Ok(_context.PointSale
                 .Include(c => c.Restaurant)
-                .Include(c => c.PointSaleImage));
+                .Include(c => c.CatalogueImage));
         }
     }
 }

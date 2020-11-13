@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RestApp.Common.Entities
 {
-    public class PointSaleImage
+    public class Catalogue
     {
         public int Id { get; set; }
 

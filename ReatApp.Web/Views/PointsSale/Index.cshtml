@@ -31,7 +31,7 @@
                                 Restaurant
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.PointSaleImagesNumber)
+                                @Html.DisplayNameFor(model => model.CatalogueImagesNumber)
                             </th>
                             <th></th>
                         </tr>
@@ -50,7 +50,7 @@
                                     @Html.DisplayFor(modelItem => item.Restaurant.Name)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.PointSaleImagesNumber)
+                                    @Html.DisplayFor(modelItem => item.CatalogueImagesNumber)
                                 </td>
                                 <td>
                                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>

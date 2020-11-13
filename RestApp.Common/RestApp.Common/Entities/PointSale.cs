@@ -16,19 +16,30 @@ namespace RestApp.Common.Entities
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
+        [MaxLength(100)]
+        public string Address { get; set; }
+
+        public int Tables { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N4}")]
+        public double Latitude { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N4}")]
+
+        public double Longitude { get; set; }
 
         public Restaurant Restaurant { get; set; }
 
-        public ICollection<PointSaleImage> PointSaleImage { get; set; }
+        public ICollection<Catalogue> CatalogueImage { get; set; }
 
         [DisplayName("Point Sale Images Number")]
-        public int PointSaleImagesNumber => PointSaleImage == null ? 0 : PointSaleImage.Count;
+        public int CatalogueImagesNumber => CatalogueImage == null ? 0 : CatalogueImage.Count;
 
         //TODO: Pending to put the correct paths
         [Display(Name = "Image")]
-        public string ImageFullPath => PointSaleImage == null || PointSaleImage.Count == 0
+        public string ImageFullPath => CatalogueImage == null || CatalogueImage.Count == 0
             ? $"https://onsalecarmona.azurewebsites.net/images/noimage.png"
-            : PointSaleImage.FirstOrDefault().ImageFullPath;
+            : CatalogueImage.FirstOrDefault().ImageFullPath;
     }
 
 }

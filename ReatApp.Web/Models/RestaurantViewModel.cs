@@ -6,6 +6,9 @@ namespace ReatApp.Web.Models
 {
     public class RestaurantViewModel : Restaurant
     {
+
+        public int UserId { get; set; }
+
         [Display(Name = "Image")]
         public IFormFile ImageFile { get; set; }
 

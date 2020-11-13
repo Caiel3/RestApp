@@ -14,7 +14,7 @@ namespace ReatApp.Web.Data
 
         public DbSet<PointSale> PointSale { get; set; }
 
-        public DbSet<PointSaleImage> PointSaleImages { get; set; }
+        public DbSet<Catalogue> CatalogueImages { get; set; }
 
 
 

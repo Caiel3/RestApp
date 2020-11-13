@@ -6,6 +6,7 @@ using ReatApp.Web.Helpers;
 using ReatApp.Web.Models;
 using RestApp.Common.Entities;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ReatApp.Web.Controllers
@@ -27,6 +28,8 @@ namespace ReatApp.Web.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Restaurants
+                //.Include(u => u.User)
+                //.Where(d => d.User == user.Userid)
                 .ToListAsync());
         }
 
@@ -55,7 +58,7 @@ namespace ReatApp.Web.Controllers
                     _context.Add(restaurant);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
-                }
+                } 
                 catch (DbUpdateException dbUpdateException)
                 {
                     if (dbUpdateException.InnerException.Message.Contains("duplicate"))

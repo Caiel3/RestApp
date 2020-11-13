@@ -32,7 +32,7 @@ namespace ReatApp.Web.Controllers
         {
             return View(await _context.PointSale
                 .Include(p => p.Restaurant)
-                .Include(p => p.PointSaleImage)
+                .Include(p => p.CatalogueImage)
                 .ToListAsync());
         }
 
@@ -59,9 +59,9 @@ namespace ReatApp.Web.Controllers
                     if (model.ImageFile != null)
                     {
                         Guid imageId = await _blobHelper.UploadBlobAsync(model.ImageFile, "products");
-                        pointSale.PointSaleImage = new List<PointSaleImage>
+                        pointSale.CatalogueImage = new List<Catalogue>
                 {
-                    new PointSaleImage { ImageId = imageId }
+                    new Catalogue { ImageId = imageId }
                 };
                     }
 
@@ -99,7 +99,7 @@ namespace ReatApp.Web.Controllers
 
             PointSale pointSale = await _context.PointSale
                 .Include(p => p.Restaurant)
-                .Include(p => p.PointSaleImage)
+                .Include(p => p.CatalogueImage)
                 .FirstOrDefaultAsync(p => p.Id == id);
             if (pointSale == null)
             {
@@ -123,12 +123,12 @@ namespace ReatApp.Web.Controllers
                     if (model.ImageFile != null)
                     {
                         Guid imageId = await _blobHelper.UploadBlobAsync(model.ImageFile, "products");
-                        if (pointSale.PointSaleImage == null)
+                        if (pointSale.CatalogueImage == null)
                         {
-                            pointSale.PointSaleImage = new List<PointSaleImage>();
+                            pointSale.CatalogueImage = new List<Catalogue>();
                         }
 
-                        pointSale.PointSaleImage.Add(new PointSaleImage { ImageId = imageId });
+                        pointSale.CatalogueImage.Add(new Catalogue { ImageId = imageId });
                     }
 
                     _context.Update(pointSale);
@@ -165,7 +165,7 @@ namespace ReatApp.Web.Controllers
             }
 
             PointSale pointSale = await _context.PointSale
-                .Include(p => p.PointSaleImage)
+                .Include(p => p.CatalogueImage)
                 .FirstOrDefaultAsync(p => p.Id == id);
             if (pointSale == null)
             {
@@ -195,7 +195,7 @@ namespace ReatApp.Web.Controllers
 
             PointSale pointSale = await _context.PointSale
                 .Include(c => c.Restaurant)
-                .Include(c => c.PointSaleImage)
+                .Include(c => c.CatalogueImage)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pointSale == null)
             {
@@ -218,18 +218,18 @@ namespace ReatApp.Web.Controllers
                 return NotFound();
             }
 
-            AddPointSaleImageViewModel model = new AddPointSaleImageViewModel { PointSaleId = pointSale.Id };
+            AddCatalogueImageViewModel model = new AddCatalogueImageViewModel { PointSaleId = pointSale.Id };
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddImage(AddPointSaleImageViewModel model)
+        public async Task<IActionResult> AddImage(AddCatalogueImageViewModel model)
         {
             if (ModelState.IsValid)
             {
                 PointSale pointSale = await _context.PointSale
-                    .Include(p => p.PointSaleImage)
+                    .Include(p => p.CatalogueImage)
                     .FirstOrDefaultAsync(p => p.Id == model.PointSaleId);
                 if (pointSale == null)
                 {
@@ -239,12 +239,12 @@ namespace ReatApp.Web.Controllers
                 try
                 {
                     Guid imageId = await _blobHelper.UploadBlobAsync(model.ImageFile, "products");
-                    if (pointSale.PointSaleImage == null)
+                    if (pointSale.CatalogueImage == null)
                     {
-                        pointSale.PointSaleImage = new List<PointSaleImage>();
+                        pointSale.CatalogueImage = new List<Catalogue>();
                     }
 
-                    pointSale.PointSaleImage.Add(new PointSaleImage { ImageId = imageId });
+                    pointSale.CatalogueImage.Add(new Catalogue { ImageId = imageId });
                     _context.Update(pointSale);
                     await _context.SaveChangesAsync();
                     return RedirectToAction($"{nameof(Details)}/{pointSale.Id}");
@@ -266,15 +266,15 @@ namespace ReatApp.Web.Controllers
                 return NotFound();
             }
 
-            PointSaleImage pointSaleImage = await _context.PointSaleImages
+            Catalogue pointSaleImage = await _context.CatalogueImages
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pointSaleImage == null)
             {
                 return NotFound();
             }
 
-            PointSale pointSale = await _context.PointSale.FirstOrDefaultAsync(p => p.PointSaleImage.FirstOrDefault(pi => pi.Id == pointSaleImage.Id) != null);
-            _context.PointSaleImages.Remove(pointSaleImage);
+            PointSale pointSale = await _context.PointSale.FirstOrDefaultAsync(p => p.CatalogueImage.FirstOrDefault(pi => pi.Id == pointSaleImage.Id) != null);
+            _context.CatalogueImages.Remove(pointSaleImage);
             await _context.SaveChangesAsync();
             return RedirectToAction($"{nameof(Details)}/{pointSale.Id}");
         }
