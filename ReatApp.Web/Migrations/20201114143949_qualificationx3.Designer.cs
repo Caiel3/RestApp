@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReatApp.Web.Data;
 
 namespace ReatApp.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201114143949_qualificationx3")]
+    partial class qualificationx3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,33 +129,6 @@ namespace ReatApp.Web.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("ReatApp.Web.Data.Entities.Booking", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<DateTime?>("DateConfirmed");
-
-                    b.Property<DateTime?>("DateSent");
-
-                    b.Property<string>("Remarks");
-
-                    b.Property<string>("UserId");
-
-                    b.Property<int?>("pointSaleId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("pointSaleId");
-
-                    b.ToTable("bookings");
                 });
 
             modelBuilder.Entity("ReatApp.Web.Data.Entities.PointSale", b =>
@@ -368,17 +343,6 @@ namespace ReatApp.Web.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ReatApp.Web.Data.Entities.Booking", b =>
-                {
-                    b.HasOne("ReatApp.Web.Data.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.HasOne("ReatApp.Web.Data.Entities.PointSale", "pointSale")
-                        .WithMany()
-                        .HasForeignKey("pointSaleId");
                 });
 
             modelBuilder.Entity("ReatApp.Web.Data.Entities.PointSale", b =>

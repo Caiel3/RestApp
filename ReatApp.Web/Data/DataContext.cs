@@ -10,11 +10,18 @@ namespace ReatApp.Web.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
+
+        public DbSet<Catalogue> CatalogueImages { get; set; }
+
         public DbSet<Restaurant> Restaurants { get; set; }
 
         public DbSet<PointSale> PointSale { get; set; }
 
-        public DbSet<Catalogue> CatalogueImages { get; set; }
+
+        public DbSet<Booking> bookings { get; set; }
+
+        public DbSet<Qualification> Qualifications { get; set; }
+
 
 
 

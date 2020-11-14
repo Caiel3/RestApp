@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReatApp.Web.Data;
+using ReatApp.Web.Data.Entities;
 using ReatApp.Web.Helpers;
 using ReatApp.Web.Models;
 using RestApp.Common.Entities;
@@ -33,6 +34,7 @@ namespace ReatApp.Web.Controllers
             return View(await _context.PointSale
                 .Include(p => p.Restaurant)
                 .Include(p => p.CatalogueImage)
+                .Include(q => q.Qualifications)
                 .ToListAsync());
         }
 
@@ -196,6 +198,8 @@ namespace ReatApp.Web.Controllers
             PointSale pointSale = await _context.PointSale
                 .Include(c => c.Restaurant)
                 .Include(c => c.CatalogueImage)
+                .Include(c => c.Qualifications)
+                .ThenInclude(q => q.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pointSale == null)
             {
