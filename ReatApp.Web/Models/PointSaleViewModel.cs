@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ReatApp.Web.Data.Entities;
-using RestApp.Common.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 

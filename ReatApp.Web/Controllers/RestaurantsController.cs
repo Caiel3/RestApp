@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReatApp.Web.Data;
+using ReatApp.Web.Data.Entities;
 using ReatApp.Web.Helpers;
 using ReatApp.Web.Models;
-using RestApp.Common.Entities;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,9 +17,12 @@ namespace ReatApp.Web.Controllers
         private readonly DataContext _context;
         private readonly IBlobHelper _blobHelper;
         private readonly IConverterHelper _converterHelper;
+        private readonly IUserHelper _userHelper;
 
-        public RestaurantsController(DataContext context, IBlobHelper blobHelper, IConverterHelper converterHelper)
+        public RestaurantsController(
+            IUserHelper userHelper, DataContext context, IBlobHelper blobHelper, IConverterHelper converterHelper)
         {
+            _userHelper = userHelper;
             _context = context;
             _blobHelper = blobHelper;
             _converterHelper = converterHelper;
@@ -27,9 +30,16 @@ namespace ReatApp.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+
+            //User user = await _userHelper.GetUserAsync(User.Identities[0].Name);
+
             return View(await _context.Restaurants
-                //.Include(u => u.User)
-                //.Where(d => d.User == user.Userid)
+                .Include(u => u.User)
+                .Where(d => d.User == User.Claims
+                        //_context.Users
+                        //.where(u => u.User == User.Claims)
+                        //d.User == User.Identities
+                        )
                 .ToListAsync());
         }
 
@@ -45,6 +55,7 @@ namespace ReatApp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 Guid imageId = Guid.Empty;
 
                 if (model.ImageFile != null)
@@ -58,7 +69,7 @@ namespace ReatApp.Web.Controllers
                     _context.Add(restaurant);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
-                } 
+                }
                 catch (DbUpdateException dbUpdateException)
                 {
                     if (dbUpdateException.InnerException.Message.Contains("duplicate"))

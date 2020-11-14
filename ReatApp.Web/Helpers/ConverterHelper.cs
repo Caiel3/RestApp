@@ -1,7 +1,6 @@
 ﻿using ReatApp.Web.Data;
 using ReatApp.Web.Data.Entities;
 using ReatApp.Web.Models;
-using RestApp.Common.Entities;
 using System;
 using System.Threading.Tasks;
 

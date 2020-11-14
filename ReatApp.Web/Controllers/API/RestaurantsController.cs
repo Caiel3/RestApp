@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using ReatApp.Web.Data;
 
 namespace ReatApp.Web.Controllers.API

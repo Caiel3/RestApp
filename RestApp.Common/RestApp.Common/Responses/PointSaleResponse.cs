@@ -20,7 +20,7 @@ namespace RestApp.Common.Responses
 
         public double Longitude { get; set; }
 
-        public Restaurant Restaurant { get; set; }
+        public RestaurantResponse Restaurant { get; set; }
 
         public ICollection<Catalogue> CatalogueImage { get; set; }
 

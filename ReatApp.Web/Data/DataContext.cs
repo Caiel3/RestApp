@@ -17,7 +17,6 @@ namespace ReatApp.Web.Data
 
         public DbSet<PointSale> PointSale { get; set; }
 
-
         public DbSet<Booking> bookings { get; set; }
 
         public DbSet<Qualification> Qualifications { get; set; }
