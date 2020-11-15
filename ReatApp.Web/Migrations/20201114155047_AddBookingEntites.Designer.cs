@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReatApp.Web.Data;
 
 namespace ReatApp.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201114155047_AddBookingEntites")]
+    partial class AddBookingEntites
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -216,28 +218,6 @@ namespace ReatApp.Web.Migrations
                     b.ToTable("Qualifications");
                 });
 
-            modelBuilder.Entity("ReatApp.Web.Data.Entities.Restaurant", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description");
-
-                    b.Property<Guid>("ImageId");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("Restaurants");
-                });
-
             modelBuilder.Entity("ReatApp.Web.Data.Entities.User", b =>
                 {
                     b.Property<string>("Id")
@@ -325,6 +305,28 @@ namespace ReatApp.Web.Migrations
                     b.ToTable("CatalogueImages");
                 });
 
+            modelBuilder.Entity("RestApp.Common.Entities.Restaurant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<Guid>("ImageId");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Restaurants");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -383,7 +385,7 @@ namespace ReatApp.Web.Migrations
 
             modelBuilder.Entity("ReatApp.Web.Data.Entities.PointSale", b =>
                 {
-                    b.HasOne("ReatApp.Web.Data.Entities.Restaurant", "Restaurant")
+                    b.HasOne("RestApp.Common.Entities.Restaurant", "Restaurant")
                         .WithMany()
                         .HasForeignKey("RestaurantId");
                 });

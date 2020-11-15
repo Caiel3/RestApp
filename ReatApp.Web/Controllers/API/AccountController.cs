@@ -87,6 +87,27 @@ namespace ReatApp.Web.Controllers.API
             return BadRequest();
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpPost]
+        public async Task<IActionResult> GetUser()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            string email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            User user = await _userHelper.GetUserAsync(email);
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
+
+            return Ok(user);
+        }
+
+
+
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> PostUser([FromBody] UserRequest request)

@@ -1,5 +1,3 @@
-using System;
-
 namespace ReatApp.Web.Models
 {
     public class ErrorViewModel
