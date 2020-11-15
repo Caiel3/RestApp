@@ -1,6 +1,7 @@
 ﻿using FFImageLoading.Work;
 using Prism.Commands;
 using Prism.Navigation;
+using RestApp.Common.Enums;
 using RestApp.Common.Request;
 using RestApp.Common.Responses;
 using RestApp.Common.Services;
@@ -8,6 +9,7 @@ using RestApp.Prism.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -24,6 +26,7 @@ namespace RestApp.Prism.ViewModels
         private UserRequest _user;                
         private bool _isRunning;
         private bool _isEnabled;
+        private UserType _userTypes;
         private DelegateCommand _registerCommand;
 
         public RegisterPageViewModel(
@@ -38,7 +41,15 @@ namespace RestApp.Prism.ViewModels
             Title = Languages.Register;           
             IsEnabled = true;
             User = new UserRequest();
-
+          
+        }        
+        
+        public List<string> UserTypes
+        {
+            get
+            {
+                return new List<string> { Languages.UserType, Languages.UserTypeAdminRestaurant };
+            }
         }
 
         public DelegateCommand RegisterCommand => _registerCommand ?? (_registerCommand = new DelegateCommand(RegisterAsync));
@@ -87,6 +98,15 @@ namespace RestApp.Prism.ViewModels
                 return;
             }
         }
+
+        public List<string> BreedNames
+        {
+            get
+            {
+                return new List<string> { "Border Collie", "Labrador Retriever", "Pit Bull" };
+            }
+        }
+     
 
         private async Task<bool> ValidateDataAsync()
         {
