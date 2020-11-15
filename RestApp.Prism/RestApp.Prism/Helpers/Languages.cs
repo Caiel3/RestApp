@@ -90,6 +90,17 @@ namespace RestApp.Prism.Helpers
         public static string UserTypePlaceHolder => Resource.UserTypePlaceHolder;
         public static string UserTypeAdminRestaurant => Resource.UserTypeAdminRestaurant;
 
+        public static string Qualifications => Resource.Qualifications;
+
+        public static string QualificationNumber => Resource.QualificationNumber;
+
+        public static string Details => Resource.Details;
+        public static string DescripcionEmpty => Resource.DescripcionEmpty;
+        public static string Name => Resource.Name;
+        public static string Descripcion => Resource.Descripcion;
+
+
+
 
     }
 

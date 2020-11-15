@@ -1,9 +1,11 @@
 ﻿using Prism.Commands;
 using Prism.Navigation;
+using ReatApp.Web.Data.Entities;
 using RestApp.Common.Entities;
 using RestApp.Common.Responses;
 using RestApp.Common.Services;
 using RestApp.Prism.Helpers;
+using RestApp.Prism.ItemsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,12 +20,12 @@ namespace RestApp.Prism.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
-        private ObservableCollection<PointSale> _pointsale;
+        private ObservableCollection<PointSaleHelper> _pointsale;
         private bool _isRunning;
         private string _search;
-        private List<PointSale> _myRestaurants;
+        private List<PointSaleHelper> _myRestaurants;
         private DelegateCommand _searchCommand;
-
+        private ObservableCollection<RestaurantItemViewModel> _pointsSales;
 
         public RestaurantPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
@@ -41,7 +43,13 @@ namespace RestApp.Prism.ViewModels
                 SetProperty(ref _search, value);
                 ShowRestaurants();
             }
-        }     
+        }
+        public ObservableCollection<RestaurantItemViewModel> PointSale
+        {
+            get => _pointsSales;
+            set => SetProperty(ref _pointsSales, value);
+        }
+
 
         public bool IsRunning
         {
@@ -49,7 +57,7 @@ namespace RestApp.Prism.ViewModels
             set => SetProperty(ref _isRunning, value);
         }
 
-        public ObservableCollection<PointSale> PointSale
+        public ObservableCollection<PointSaleHelper> PointSales
         {
             get => _pointsale;
             set => SetProperty(ref _pointsale, value);
@@ -65,15 +73,12 @@ namespace RestApp.Prism.ViewModels
             IsRunning = true;
 
             string url = App.Current.Resources["UrlAPI"].ToString();
-            Response response = await _apiService.GetListAsync<PointSale>(
+            Response response = await _apiService.GetListAsync<PointSaleHelper>(
                 url,
                 "/api",
                 "/PointsSale");
 
             IsRunning = false;
-            _myRestaurants = (List<PointSale>)response.Result;
-            ShowRestaurants();
-
             if (!response.IsSuccess)
             {
                 await App.Current.MainPage.DisplayAlert(
@@ -82,20 +87,39 @@ namespace RestApp.Prism.ViewModels
                     Languages.Accept);
                 return;
             }
-
-            List<PointSale> myPointSales = (List<PointSale>)response.Result;
-            PointSale = new ObservableCollection<PointSale>(myPointSales);
+            _myRestaurants = (List<PointSaleHelper>)response.Result;
+            ShowRestaurants(); 
         }
         private void ShowRestaurants()
         {
             if (string.IsNullOrEmpty(Search))
             {
-                PointSale = new ObservableCollection<PointSale>(_myRestaurants);
+                PointSale = new ObservableCollection<RestaurantItemViewModel>(_myRestaurants.Select(p => new RestaurantItemViewModel(_navigationService)
+                {
+                   
+                    Description = string.IsNullOrEmpty(p.Description)?Languages.DescripcionEmpty: p.Description,
+                    Id = p.Id,                   
+                    Name = p.Name,
+                    CatalogueImage=p.CatalogueImage,
+                    Qualifications = p.Qualifications
+                })
+                .ToList());
+
             }
             else
             {
-                PointSale = new ObservableCollection<PointSale>(_myRestaurants
-                    .Where(p => p.Name.ToLower().Contains(Search.ToLower())));
+                PointSale = new ObservableCollection<RestaurantItemViewModel>(_myRestaurants.Select(p => new RestaurantItemViewModel(_navigationService)
+                {
+
+                    Description = string.IsNullOrEmpty(p.Description) ? Languages.DescripcionEmpty : p.Description,
+                    Id = p.Id,
+                    Name = p.Name,
+                    CatalogueImage = p.CatalogueImage,
+                    Qualifications=p.Qualifications
+                })
+                .Where(p => p.Name.ToLower().Contains(Search.ToLower()))
+                .ToList());
+
             }
         }
     }

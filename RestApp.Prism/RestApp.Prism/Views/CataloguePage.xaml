@@ -7,17 +7,36 @@
              ios:Page.UseSafeArea="true"
            	 xmlns:i18n="clr-namespace:RestApp.Prism.Helpers"
              xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
              x:Class="RestApp.Prism.Views.CataloguePage"
              BackgroundColor="{StaticResource ColorBackground}"
              Title="{Binding Title}">
-
     <StackLayout Padding="5">
         <ScrollView>
             <StackLayout>
-                <rating:SfRating IsEnabled="False"
-                                 HorizontalOptions="Center"
-                                 Precision="Exact"
-                                 Value="{Binding Qualification.Score}"/>
+                <syncfusion:SfRotator EnableAutoPlay="True"  
+                                      EnableLooping="True"
+                                      HeightRequest="300"
+                                      ItemsSource="{Binding Images}"
+                                      NavigationDelay="5000"
+                                      NavigationDirection="Horizontal"
+                                      NavigationStripMode="Thumbnail"
+                                      NavigationStripPosition="Bottom">
+                    <syncfusion:SfRotator.ItemTemplate>
+                        <DataTemplate>
+                            <ffimageloading:CachedImage Aspect="AspectFit"
+                                                        CacheDuration= "50"
+                                                        DownsampleToViewSize = "true"
+                                                        ErrorPlaceholder= "ErrorImage"
+                                                        HeightRequest="300"
+                                                        LoadingPlaceholder= "LoaderImage"
+                                                        RetryCount= "3"
+                                                        RetryDelay= "600"
+                                                        Source="{Binding ImageFullPath}"/>
+                        </DataTemplate>
+                    </syncfusion:SfRotator.ItemTemplate>
+                </syncfusion:SfRotator>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -27,42 +46,33 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-
-                    <Label Grid.Column="0"
-                           Grid.Row="0"
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
                            FontAttributes="Bold"
-                           Text="{i18n:Translate Catalogue}"
-                           VerticalOptions="Center"/>
-                    <Label Grid.Column="1"
-                           Grid.Row="0"
+                           Text="{i18n:Translate Name}"/>
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           Text="{Binding PointSales.Name}"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
                            FontAttributes="Bold"
-                           FontSize="Large"
-                           Text="{Binding Qualification.Score, StringFormat='{0:N2}'}"/>
-
-                    <Label Grid.Column="0"
-                           Grid.Row="1"
-                           FontAttributes="Bold"
-                           Text="{i18n:Translate Date}"
-                           VerticalOptions="Center"/>
-                    <Label Grid.Column="1"
-                           Grid.Row="1"
-                           FontAttributes="Bold"
-                           FontSize="Large"
-                           Text="{Binding Qualification.Date, StringFormat='{0:yyyy/MM/dd hh:mm}'}"/>
-
-                    <Label Grid.Column="0"
-                           Grid.Row="2"
-                           FontAttributes="Bold"
-                           Text="{i18n:Translate Remarks}"
-                           VerticalOptions="Center"/>
-                    <Label Grid.Column="1"
-                           Grid.Row="2"
-                           Text="{Binding Qualification.Remarks}"/>
-
+                           Text="{i18n:Translate Descripcion}"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding PointSales.Description}"/>                    
                 </Grid>
             </StackLayout>
         </ScrollView>
+        <Button BackgroundColor="Navy"
+                Command="{Binding AddToCartBinding}" 
+                CornerRadius="10"
+                Text="Add to cart"
+                TextColor="White"
+                VerticalOptions="EndAndExpand"/>
     </StackLayout>
+
 
 </ContentPage>

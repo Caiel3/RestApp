@@ -270,4 +270,28 @@
   <data name="UserTypeAdminRestaurant" xml:space="preserve">
     <value>Administrador de restaurante</value>
   </data>
+  <data name="Qualifications" xml:space="preserve">
+    <value>Calificación</value>
+  </data>
+  <data name="QualificationNumber" xml:space="preserve">
+    <value>¡Número de titulaciones!</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Notas:</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalles</value>
+  </data>
+  <data name="DescripcionEmpty" xml:space="preserve">
+    <value>Sin descripción</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Descripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
 </root>
