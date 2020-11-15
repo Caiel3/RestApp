@@ -62,11 +62,16 @@
 
                     <inputLayout:SfTextInputLayout Hint="{i18n:Translate UserType}" 
                                                    ContainerType="Outlined">
-                        <Picker ItemDisplayBinding="{Binding Name}"
-                                ItemsSource="{Binding UserTypes}"
-                                SelectedItem="{Binding UserType}"
-                                Title="{i18n:Translate UserTypePlaceHolder}"/>
-                    </inputLayout:SfTextInputLayout>           
+                        <Picker ItemDisplayBinding="{Binding Name}"                               
+                                Title="{i18n:Translate UserTypePlaceHolder}">
+                            <Picker.Items>
+                                <x:String>"{i18n:Translate UserType}"</x:String>
+                                <x:String>"{i18n:Translate UserTypeAdminRestaurant}"</x:String>                                
+                            </Picker.Items>
+
+                        </Picker>
+                    </inputLayout:SfTextInputLayout>         
+                    
 
                     <inputLayout:SfTextInputLayout Hint="{i18n:Translate Address}" 
                                                    ContainerType="Outlined">

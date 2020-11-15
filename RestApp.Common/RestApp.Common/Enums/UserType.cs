@@ -4,7 +4,7 @@
     {
         Admin,
         User,
-        Restaurant
+        RestaurantAdmin
     }
 
 }

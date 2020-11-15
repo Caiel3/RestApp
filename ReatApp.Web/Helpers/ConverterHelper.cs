@@ -1,6 +1,6 @@
 ﻿using ReatApp.Web.Data;
+using ReatApp.Web.Data.Entities;
 using ReatApp.Web.Models;
-using RestApp.Common.Entities;
 using System;
 using System.Threading.Tasks;
 
@@ -47,7 +47,11 @@ namespace ReatApp.Web.Helpers
                 Description = model.Description,
                 Id = isNew ? 0 : model.Id,
                 Name = model.Name,
-                PointSaleImage = model.PointSaleImage
+                Latitude = model.Latitude,
+                Longitude = model.Longitude,
+                Tables = model.Tables,
+                Address = model.Address,
+                CatalogueImage = model.CatalogueImage
             };
         }
 
@@ -61,7 +65,11 @@ namespace ReatApp.Web.Helpers
                 Description = pointSale.Description,
                 Id = pointSale.Id,
                 Name = pointSale.Name,
-                PointSaleImage = pointSale.PointSaleImage
+                Latitude = pointSale.Latitude,
+                Longitude = pointSale.Longitude,
+                Tables = pointSale.Tables,
+                Address = pointSale.Address,
+                CatalogueImage = pointSale.CatalogueImage
             };
         }
 
