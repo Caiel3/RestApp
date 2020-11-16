@@ -574,6 +574,15 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is a restaurant.
+        /// </summary>
+        internal static string RestaurantCheck {
+            get {
+                return ResourceManager.GetString("RestaurantCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restaurants.
         /// </summary>
         internal static string Restaurants {

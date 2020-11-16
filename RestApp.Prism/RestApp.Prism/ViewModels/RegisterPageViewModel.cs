@@ -26,7 +26,7 @@ namespace RestApp.Prism.ViewModels
         private UserRequest _user;                
         private bool _isRunning;
         private bool _isEnabled;
-        private UserType _userTypes;
+        private bool _isRestaurant;
         private DelegateCommand _registerCommand;
 
         public RegisterPageViewModel(
@@ -43,15 +43,7 @@ namespace RestApp.Prism.ViewModels
             User = new UserRequest();
           
         }        
-        
-        public List<string> UserTypes
-        {
-            get
-            {
-                return new List<string> { Languages.UserType, Languages.UserTypeAdminRestaurant };
-            }
-        }
-
+   
         public DelegateCommand RegisterCommand => _registerCommand ?? (_registerCommand = new DelegateCommand(RegisterAsync));
 
         public ImageSource Image
@@ -71,7 +63,11 @@ namespace RestApp.Prism.ViewModels
             get => _isRunning;
             set => SetProperty(ref _isRunning, value);
         }
-
+        public bool IsRestaurant
+        {
+            get => _isRestaurant;
+            set => SetProperty(ref _isRestaurant, value);
+        }
         public bool IsEnabled
         {
             get => _isEnabled;
@@ -90,6 +86,8 @@ namespace RestApp.Prism.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
+            
+
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 IsRunning = false;
@@ -97,16 +95,27 @@ namespace RestApp.Prism.ViewModels
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.ConnectionError, Languages.Accept);
                 return;
             }
+            string url = App.Current.Resources["UrlAPI"].ToString();           
+
+            Response response = await _apiService.RegisterUserAsync(url, "/api", "/Account/Register", User);
+            IsRunning = false;
+            IsEnabled = true;
+
+            if (!response.IsSuccess)
+            {
+             
+                    await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
+                
+                return;
+            }
+
+            await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.RegisterMessge, Languages.Accept);
+            await _navigationService.GoBackAsync();
+
         }
 
-        public List<string> BreedNames
-        {
-            get
-            {
-                return new List<string> { "Border Collie", "Labrador Retriever", "Pit Bull" };
-            }
-        }
-     
+
+
 
         private async Task<bool> ValidateDataAsync()
         {
@@ -144,9 +153,7 @@ namespace RestApp.Prism.ViewModels
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.PhoneError, Languages.Accept);
                 return false;
-            }
-
-       
+            }       
 
             if (string.IsNullOrEmpty(User.Password) || User.Password?.Length < 6)
             {

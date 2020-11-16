@@ -318,4 +318,7 @@
   <data name="LoginFirstMessage" xml:space="preserve">
     <value>Accesso obbligatorio</value>
   </data>
+  <data name="RestaurantCheck" xml:space="preserve">
+    <value>Questo è un ristorante.</value>
+  </data>
 </root>

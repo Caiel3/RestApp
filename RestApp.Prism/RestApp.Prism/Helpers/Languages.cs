@@ -106,6 +106,7 @@ namespace RestApp.Prism.Helpers
         public static string NewQualification => Resource.NewQualification; 
         public static string Save => Resource.Save;
         public static string LoginFirstMessage => Resource.LoginFirstMessage;
+        public static string RestaurantCheck => Resource.RestaurantCheck;
 
     }
 
