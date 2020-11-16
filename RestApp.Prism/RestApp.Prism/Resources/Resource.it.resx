@@ -294,4 +294,10 @@
   <data name="Descripcion" xml:space="preserve">
     <value>Descripcion</value>
   </data>
+  <data name="PointSale" xml:space="preserve">
+    <value>POS</value>
+  </data>
+  <data name="Reservation" xml:space="preserve">
+    <value>Prenotazione</value>
+  </data>
 </root>

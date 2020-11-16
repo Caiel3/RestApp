@@ -98,6 +98,8 @@ namespace RestApp.Prism.Helpers
         public static string DescripcionEmpty => Resource.DescripcionEmpty;
         public static string Name => Resource.Name;
         public static string Descripcion => Resource.Descripcion;
+        public static string PointSale => Resource.PointSale;
+        public static string Reservation => Resource.Reservation;
 
 
 

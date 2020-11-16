@@ -93,6 +93,7 @@ namespace RestApp.Prism.ViewModels
         private void ShowRestaurants()
         {
             if (string.IsNullOrEmpty(Search))
+            
             {
                 PointSale = new ObservableCollection<RestaurantItemViewModel>(_myRestaurants.Select(p => new RestaurantItemViewModel(_navigationService)
                 {
@@ -101,7 +102,9 @@ namespace RestApp.Prism.ViewModels
                     Id = p.Id,                   
                     Name = p.Name,
                     CatalogueImage=p.CatalogueImage,
-                    Qualifications = p.Qualifications
+                    Qualifications = p.Qualifications,
+                    Restaurant=p.Restaurant
+                    
                 })
                 .ToList());
 
@@ -115,7 +118,8 @@ namespace RestApp.Prism.ViewModels
                     Id = p.Id,
                     Name = p.Name,
                     CatalogueImage = p.CatalogueImage,
-                    Qualifications=p.Qualifications
+                    Qualifications=p.Qualifications,
+                    Restaurant = p.Restaurant
                 })
                 .Where(p => p.Name.ToLower().Contains(Search.ToLower()))
                 .ToList());

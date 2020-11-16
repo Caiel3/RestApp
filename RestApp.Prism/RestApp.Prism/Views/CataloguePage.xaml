@@ -52,24 +52,31 @@
                     <Label Grid.Row="0"
                            Grid.Column="0"
                            FontAttributes="Bold"
-                           Text="{i18n:Translate Name}"/>
-                    <Label Grid.Row="0"
-                           Grid.Column="1"
-                           Text="{Binding PointSales.Name}"/>
+                           Text="{i18n:Translate Restaurants}"/>
                     <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Text="{Binding PointSale.Restaurant.Name}"/>
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           Text="{i18n:Translate PointSale}"/>
+                    <Label Grid.Row="3"
+                           Grid.Column="0"
+                           Text="{Binding PointSale.Name}"/>
+                    <Label Grid.Row="4"
                            Grid.Column="0"
                            FontAttributes="Bold"
                            Text="{i18n:Translate Descripcion}"/>
-                    <Label Grid.Row="1"
-                           Grid.Column="1"
-                           Text="{Binding PointSales.Description}"/>                    
+                    <Label Grid.Row="5"
+                           Grid.Column="0"
+                           Text="{Binding PointSale.Description}"/>                    
                 </Grid>
             </StackLayout>
         </ScrollView>
         <Button BackgroundColor="Navy"
                 Command="{Binding AddToCartBinding}" 
                 CornerRadius="10"
-                Text="Add to cart"
+                Text="{i18n:Translate Reservation}"
                 TextColor="White"
                 VerticalOptions="EndAndExpand"/>
     </StackLayout>
