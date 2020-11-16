@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>6.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Core">
       <Version>18.3.0.48</Version>
     </PackageReference>

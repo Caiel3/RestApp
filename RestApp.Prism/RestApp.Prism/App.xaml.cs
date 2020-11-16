@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using RestApp.Common.Services;
 using Syncfusion.Licensing;
 using RestApp.Prism.Helpers;
+using RestApp.Common.Helpers;
 
 namespace RestApp.Prism
 {
@@ -30,6 +31,7 @@ namespace RestApp.Prism
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.Register<IApiService, ApiService>();
+            containerRegistry.Register<IGeolocatorService, GeolocatorService>();
             containerRegistry.Register<IRegexHelper, RegexHelper>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
