@@ -22,6 +22,7 @@ namespace RestApp.Prism.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             new SfBusyIndicatorRenderer();
             new SfRotatorRenderer();
+            Xamarin.FormsMaps.Init(this, savedInstanceState);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             LoadApplication(new App(new AndroidInitializer()));
         }
