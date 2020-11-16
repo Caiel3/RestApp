@@ -274,7 +274,7 @@
     <value>Calificación</value>
   </data>
   <data name="QualificationNumber" xml:space="preserve">
-    <value>¡Número de titulaciones!</value>
+    <value>Numero de calificaciones</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Fecha:</value>
@@ -302,5 +302,20 @@
   </data>
   <data name="Search" xml:space="preserve">
     <value>Buscar en un restaurante...</value>
+  </data>
+  <data name="RemarksPlaceHolder" xml:space="preserve">
+    <value>Introduce tus comentarios...</value>
+  </data>
+  <data name="QualificationError" xml:space="preserve">
+    <value>Debe seleccionar una calificación.</value>
+  </data>
+  <data name="NewQualification" xml:space="preserve">
+    <value>Cualificación</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="LoginFirstMessage" xml:space="preserve">
+    <value>Se requiere iniciar sesión</value>
   </data>
 </root>

@@ -48,6 +48,8 @@ namespace RestApp.Prism
             containerRegistry.RegisterForNavigation<CataloguePage, CataloguePageViewModel>();
             containerRegistry.RegisterForNavigation<RestaurantTabbedPage, RestaurantTabbedPageViewModel>();
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
+            containerRegistry.RegisterForNavigation<QualificationDetailPage, QualificationDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddQualificationPage, AddQualificationPageViewModel>();
         }
     }
 }

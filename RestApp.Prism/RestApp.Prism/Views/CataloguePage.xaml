@@ -72,7 +72,28 @@
                            Grid.Column="0"
                            Text="{Binding PointSale.Description}"/>                    
                 </Grid>
+               
+                    <StackLayout HorizontalOptions="Center"
+                             Orientation="Horizontal">
+                        <Label Text="{i18n:Translate Qualification}"
+                            VerticalOptions="Center"/>
+                        <Label FontAttributes="Bold"
+                            FontSize="Large"
+                            Text="{Binding PointSale.Qualification, StringFormat='{0:N2}'}"/>
+                        <Label Text="{i18n:Translate QualificationNumber}"
+                            VerticalOptions="Center"/>
+                        <Label FontAttributes="Bold"
+                            FontSize="Large"
+                            Text="{Binding PointSale.PoinsSaleQualifications, StringFormat='{0:N0}'}"/>
+                    </StackLayout>
+
+                    <rating:SfRating IsEnabled="False"
+                                 HorizontalOptions="Center"
+                                 Precision="Exact"
+                                 Value="{Binding PointSale.Qualification}"/>
             </StackLayout>
+           
+
         </ScrollView>
         <Button BackgroundColor="Navy"
                 Command="{Binding AddToCartBinding}" 

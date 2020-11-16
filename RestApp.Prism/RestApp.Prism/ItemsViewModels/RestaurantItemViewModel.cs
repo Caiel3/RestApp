@@ -1,6 +1,8 @@
-﻿using Prism.Commands;
+﻿using Newtonsoft.Json;
+using Prism.Commands;
 using Prism.Navigation;
 using ReatApp.Web.Data.Entities;
+using RestApp.Common.Helpers;
 using RestApp.Prism.Views;
 using System;
 using System.Collections.Generic;
@@ -28,7 +30,7 @@ namespace RestApp.Prism.ItemsViewModels
             {
                 { "pointsale", this }
             };
-
+            Settings.PointSale = JsonConvert.SerializeObject(this);
             await _navigationService.NavigateAsync(nameof(RestaurantTabbedPage), parameters);
         }
     }

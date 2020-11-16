@@ -101,9 +101,11 @@ namespace RestApp.Prism.Helpers
         public static string PointSale => Resource.PointSale;
         public static string Reservation => Resource.Reservation;
         public static string Search => Resource.Search;
-
-
-
+        public static string RemarksPlaceHolder => Resource.RemarksPlaceHolder;
+        public static string QualificationError => Resource.QualificationError;
+        public static string NewQualification => Resource.NewQualification; 
+        public static string Save => Resource.Save;
+        public static string LoginFirstMessage => Resource.LoginFirstMessage;
 
     }
 

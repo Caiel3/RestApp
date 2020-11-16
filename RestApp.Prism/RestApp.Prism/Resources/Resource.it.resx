@@ -303,4 +303,19 @@
   <data name="Search" xml:space="preserve">
     <value>Cerca un ristorante ...</value>
   </data>
+  <data name="RemarksPlaceHolder" xml:space="preserve">
+    <value>Inserisci le tue osservazioni ...</value>
+  </data>
+  <data name="QualificationError" xml:space="preserve">
+    <value>Devi selezionare una qualifica.</value>
+  </data>
+  <data name="NewQualification" xml:space="preserve">
+    <value>qualificazione</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="LoginFirstMessage" xml:space="preserve">
+    <value>Accesso obbligatorio</value>
+  </data>
 </root>

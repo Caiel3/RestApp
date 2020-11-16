@@ -11,6 +11,7 @@ namespace RestApp.Common.Helpers
         private const string _token = "token";
         private const string _isLogin = "isLogin";
         private static readonly string _stringDefault = string.Empty;
+        private const string _PointSale = "pointsale";
         private static readonly bool _boolDefault = false;
 
         private static ISettings AppSettings => CrossSettings.Current;
@@ -26,6 +27,12 @@ namespace RestApp.Common.Helpers
             get => AppSettings.GetValueOrDefault(_isLogin, _boolDefault);
             set => AppSettings.AddOrUpdateValue(_isLogin, value);
         }
+        public static string PointSale
+        {
+            get => AppSettings.GetValueOrDefault(_PointSale, _stringDefault);
+            set => AppSettings.AddOrUpdateValue(_PointSale, value);
+        }
+
     }
 
 }
