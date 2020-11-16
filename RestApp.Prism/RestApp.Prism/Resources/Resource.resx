@@ -280,4 +280,7 @@
   <data name="Reservation" xml:space="preserve">
     <value>Reservation</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search a restaurant...</value>
+  </data>
 </root>

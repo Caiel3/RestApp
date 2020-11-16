@@ -10,6 +10,7 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
              x:Class="RestApp.Prism.Views.CataloguePage"
+             IconImageSource="ic_restaurant"
              BackgroundColor="{StaticResource ColorBackground}"
              Title="{Binding Title}">
     <StackLayout Padding="5">

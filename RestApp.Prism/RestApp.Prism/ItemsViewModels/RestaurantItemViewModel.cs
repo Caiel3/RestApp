@@ -29,7 +29,7 @@ namespace RestApp.Prism.ItemsViewModels
                 { "pointsale", this }
             };
 
-            await _navigationService.NavigateAsync(nameof(CataloguePage), parameters);
+            await _navigationService.NavigateAsync(nameof(RestaurantTabbedPage), parameters);
         }
     }
 

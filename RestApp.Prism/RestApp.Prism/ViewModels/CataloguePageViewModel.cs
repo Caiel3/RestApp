@@ -35,8 +35,7 @@ namespace RestApp.Prism.ViewModels
 
             if (parameters.ContainsKey("pointsale"))
             {
-                PointSale = parameters.GetValue<PointSaleHelper>("pointsale");
-                Title = PointSale.Name;
+                PointSale = parameters.GetValue<PointSaleHelper>("pointsale");                
                 Images = new ObservableCollection<Catalogue>(PointSale.CatalogueImage);
             }
         }

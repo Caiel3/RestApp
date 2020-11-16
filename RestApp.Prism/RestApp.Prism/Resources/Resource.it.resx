@@ -300,4 +300,7 @@
   <data name="Reservation" xml:space="preserve">
     <value>Prenotazione</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cerca un ristorante ...</value>
+  </data>
 </root>

@@ -8,6 +8,7 @@
              x:Class="RestApp.Prism.Views.RestaurantPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true"
+             xmlns:i18n="clr-namespace:RestApp.Prism.Helpers"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
 
              Title="{Binding Title}">
@@ -18,7 +19,7 @@
                      Padding="5"/>
 
         <StackLayout Padding="5">
-            <SearchBar Placeholder="Search a product..."
+            <SearchBar Placeholder="{i18n:Translate Search}"
                 SearchCommand="{Binding SearchCommand}"
                 Text="{Binding Search}"/>
             <CollectionView ItemsSource="{Binding PointSale}">
