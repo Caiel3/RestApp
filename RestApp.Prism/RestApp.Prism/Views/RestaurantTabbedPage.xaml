@@ -8,7 +8,7 @@
 
     <TabbedPage.Children>
         <local:CataloguePage />
-        <!--<local:LocationDetailsPage />-->
+        <local:LocationDetailsPage />
         <local:QualificationPage />
     </TabbedPage.Children>
 
