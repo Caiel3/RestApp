@@ -1,11 +1,10 @@
 ﻿using Plugin.Geolocator;
-using Plugin.Geolocator.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestApp.Common.Helpers
+namespace RestApp.Common.Services
 {
 
     public class GeolocatorService : IGeolocatorService
@@ -18,7 +17,7 @@ namespace RestApp.Common.Helpers
         {
             try
             {
-                IGeolocator locator = CrossGeolocator.Current;
+                var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50;
                 var location = await locator.GetPositionAsync();
                 Latitude = location.Latitude;
@@ -31,5 +30,4 @@ namespace RestApp.Common.Helpers
             }
         }
     }
-
 }

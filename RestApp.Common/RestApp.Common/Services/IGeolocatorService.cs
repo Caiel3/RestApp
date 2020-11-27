@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestApp.Common.Helpers
+namespace RestApp.Common.Services
 {
     public interface IGeolocatorService
     {

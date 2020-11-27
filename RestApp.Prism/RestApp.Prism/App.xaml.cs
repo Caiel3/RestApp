@@ -31,7 +31,7 @@ namespace RestApp.Prism
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.Register<IApiService, ApiService>();
-            containerRegistry.Register<IGeolocatorService, GeolocatorService>();
+            containerRegistry.Register<IGeolocatorService, GeolocatorService>();     
             containerRegistry.Register<IRegexHelper, RegexHelper>();
             containerRegistry.Register<IFilesHelper, FilesHelper>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
