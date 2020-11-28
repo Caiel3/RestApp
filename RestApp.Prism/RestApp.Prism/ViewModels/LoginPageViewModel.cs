@@ -108,6 +108,14 @@ namespace RestApp.Prism.ViewModels
             TokenResponse token = (TokenResponse)response.Result;
             Settings.Token = JsonConvert.SerializeObject(token);
             Settings.IsLogin = true;
+            if (token.User.UserType == RestApp.Common.Enums.UserType.User)
+            {
+                Settings.IsRestaurant = false;
+            }
+            else
+            {
+                Settings.IsRestaurant = true;
+            }
 
             IsRunning = false;
             IsEnabled = true;

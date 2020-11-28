@@ -10,6 +10,7 @@ namespace RestApp.Common.Helpers
     {
         private const string _token = "token";
         private const string _isLogin = "isLogin";
+        private const string _isRestaurant = "isRestaurant";
         private static readonly string _stringDefault = string.Empty;
         private const string _PointSale = "pointsale";
         private static readonly bool _boolDefault = false;
@@ -26,6 +27,11 @@ namespace RestApp.Common.Helpers
         {
             get => AppSettings.GetValueOrDefault(_isLogin, _boolDefault);
             set => AppSettings.AddOrUpdateValue(_isLogin, value);
+        }
+        public static bool IsRestaurant
+        {
+            get => AppSettings.GetValueOrDefault(_isRestaurant, _boolDefault);
+            set => AppSettings.AddOrUpdateValue(_isRestaurant, value);
         }
         public static string PointSale
         {

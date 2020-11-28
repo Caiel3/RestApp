@@ -1,5 +1,8 @@
-﻿using Plugin.Permissions;
+﻿using Newtonsoft.Json;
+using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
+using Prism.Navigation;
+using RestApp.Common.Helpers;
 using RestApp.Common.Responses;
 using RestApp.Common.Services;
 using System;
@@ -19,12 +22,14 @@ namespace RestApp.Prism.Views
     {
         private readonly IGeolocatorService _geolocatorService;
         private readonly IApiService _apiService;
+        private readonly INavigationService _navigationService;
 
-        public RestaurantLocationPage(IGeolocatorService geolocatorService,IApiService apiService)
+        public RestaurantLocationPage(IGeolocatorService geolocatorService,IApiService apiService,INavigationService navigationService)
         {
             InitializeComponent();
             _geolocatorService = geolocatorService;
             _apiService = apiService;
+            _navigationService = navigationService;
         }
         protected override void OnAppearing()
         {
@@ -78,7 +83,7 @@ namespace RestApp.Prism.Views
                         position,
                         Distance.FromKilometers(.5)));
                 }
-            }
+            }            
         }
 
         private async Task<bool> CheckLocationPermisionsAsync()

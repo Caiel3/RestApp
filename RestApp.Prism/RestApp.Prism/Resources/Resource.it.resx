@@ -321,4 +321,67 @@
   <data name="RestaurantCheck" xml:space="preserve">
     <value>Questo è un ristorante.</value>
   </data>
+  <data name="PictureSource" xml:space="preserve">
+    <value>Dove vuoi fare la foto ?!</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>Da fotocamera</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>Da raccolta</value>
+  </data>
+  <data name="NoCameraSupported" xml:space="preserve">
+    <value>Il dispositivo non supporta l&amp;#39;accesso alla fotocamera.!</value>
+  </data>
+  <data name="NoGallerySupported" xml:space="preserve">
+    <value>Il dispositivo non supporta l&amp;#39;accesso alla galleria.!</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Cambia password</value>
+  </data>
+  <data name="ChangeUserMessage" xml:space="preserve">
+    <value>L'utente è stato aggiornato</value>
+  </data>
+  <data name="ConfirmNewPasswordError2_Duplicate[1]" xml:space="preserve">
+    <value>L'utente è stato aggiornato</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Conferma nuova password</value>
+  </data>
+  <data name="ConfirmNewPasswordError1" xml:space="preserve">
+    <value>È necessario inserire una conferma per la nuova password.</value>
+  </data>
+  <data name="ConfirmNewPasswordError2" xml:space="preserve">
+    <value>La password e la conferma non corrispondono.</value>
+  </data>
+  <data name="ConfirmNewPasswordPlaceHolder" xml:space="preserve">
+    <value>Immettere la conferma per la nuova password ...</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Password corrente</value>
+  </data>
+  <data name="CurrentPasswordError" xml:space="preserve">
+    <value>Devi inserire la tua nuova password.</value>
+  </data>
+  <data name="CurrentPasswordPlaceHolder" xml:space="preserve">
+    <value>Immettere la password corrente.</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nuova password:</value>
+  </data>
+  <data name="NewPasswordError" xml:space="preserve">
+    <value>Devi inserire la nuova password.</value>
+  </data>
+  <data name="NewPasswordPlaceHolder" xml:space="preserve">
+    <value>Immetti la nuova password</value>
+  </data>
+  <data name="Error005" xml:space="preserve">
+    <value>La password corrente non è corretta o l'account è stato rimosso dall'amministratore.</value>
+  </data>
+  <data name="ChangePassworrdMessage" xml:space="preserve">
+    <value>Modifica password completata.</value>
+  </data>
 </root>
