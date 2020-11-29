@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace RestApp.Common.Responses
 {
-    internal class PointSaleResponse
+    public class PointSaleResponse
     {
         public int Id { get; set; }
 

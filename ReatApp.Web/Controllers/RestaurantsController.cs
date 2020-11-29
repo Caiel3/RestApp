@@ -7,6 +7,7 @@ using ReatApp.Web.Helpers;
 using ReatApp.Web.Models;
 using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ReatApp.Web.Controllers
@@ -33,9 +34,16 @@ namespace ReatApp.Web.Controllers
 
             //User user = await _userHelper.GetUserAsync(User.Identities[0].Name);
 
+            string email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            User user = await _userHelper.GetUserAsync(email);
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
+
             return View(await _context.Restaurants
                 .Include(u => u.User)
-                .Where(d => d.User == User.Claims
+                .Where(d => d.User == user
                         //_context.Users
                         //.where(u => u.User == User.Claims)
                         //d.User == User.Identities
