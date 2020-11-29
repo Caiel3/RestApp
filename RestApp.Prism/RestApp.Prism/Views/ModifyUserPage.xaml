@@ -41,7 +41,6 @@
                     <inputLayout:SfTextInputLayout Hint="{i18n:Translate FirstName}" 
                                                    ContainerType="Outlined">
                         <Entry Placeholder="{i18n:Translate FirstNamePlaceHolder}" 
-                               IsEnabled="{Binding IsRestAppUser}"
                                Text="{Binding User.FirstName}" />
                     </inputLayout:SfTextInputLayout>
 

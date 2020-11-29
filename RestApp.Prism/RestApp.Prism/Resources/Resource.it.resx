@@ -270,4 +270,124 @@
   <data name="UserTypeAdminRestaurant" xml:space="preserve">
     <value>Amministratore del ristorante</value>
   </data>
+  <data name="Qualifications" xml:space="preserve">
+    <value>Qualifiche</value>
+  </data>
+  <data name="QualificationNumber" xml:space="preserve">
+    <value>Numero di qualifiche!</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Dettagli</value>
+  </data>
+  <data name="DescripcionEmpty" xml:space="preserve">
+    <value>Nessuna descrizione</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="Descripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="PointSale" xml:space="preserve">
+    <value>POS</value>
+  </data>
+  <data name="Reservation" xml:space="preserve">
+    <value>Prenotazione</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cerca un ristorante ...</value>
+  </data>
+  <data name="RemarksPlaceHolder" xml:space="preserve">
+    <value>Inserisci le tue osservazioni ...</value>
+  </data>
+  <data name="QualificationError" xml:space="preserve">
+    <value>Devi selezionare una qualifica.</value>
+  </data>
+  <data name="NewQualification" xml:space="preserve">
+    <value>qualificazione</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="LoginFirstMessage" xml:space="preserve">
+    <value>Accesso obbligatorio</value>
+  </data>
+  <data name="RestaurantCheck" xml:space="preserve">
+    <value>Questo è un ristorante.</value>
+  </data>
+  <data name="PictureSource" xml:space="preserve">
+    <value>Dove vuoi fare la foto ?!</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>Da fotocamera</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>Da raccolta</value>
+  </data>
+  <data name="NoCameraSupported" xml:space="preserve">
+    <value>Il dispositivo non supporta l&amp;#39;accesso alla fotocamera.!</value>
+  </data>
+  <data name="NoGallerySupported" xml:space="preserve">
+    <value>Il dispositivo non supporta l&amp;#39;accesso alla galleria.!</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Cambia password</value>
+  </data>
+  <data name="ChangeUserMessage" xml:space="preserve">
+    <value>L'utente è stato aggiornato</value>
+  </data>
+  <data name="ConfirmNewPasswordError2_Duplicate[1]" xml:space="preserve">
+    <value>L'utente è stato aggiornato</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Conferma nuova password</value>
+  </data>
+  <data name="ConfirmNewPasswordError1" xml:space="preserve">
+    <value>È necessario inserire una conferma per la nuova password.</value>
+  </data>
+  <data name="ConfirmNewPasswordError2" xml:space="preserve">
+    <value>La password e la conferma non corrispondono.</value>
+  </data>
+  <data name="ConfirmNewPasswordPlaceHolder" xml:space="preserve">
+    <value>Immettere la conferma per la nuova password ...</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Password corrente</value>
+  </data>
+  <data name="CurrentPasswordError" xml:space="preserve">
+    <value>Devi inserire la tua nuova password.</value>
+  </data>
+  <data name="CurrentPasswordPlaceHolder" xml:space="preserve">
+    <value>Immettere la password corrente.</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nuova password:</value>
+  </data>
+  <data name="NewPasswordError" xml:space="preserve">
+    <value>Devi inserire la nuova password.</value>
+  </data>
+  <data name="NewPasswordPlaceHolder" xml:space="preserve">
+    <value>Immetti la nuova password</value>
+  </data>
+  <data name="Error005" xml:space="preserve">
+    <value>La password corrente non è corretta o l'account è stato rimosso dall'amministratore.</value>
+  </data>
+  <data name="ChangePassworrdMessage" xml:space="preserve">
+    <value>Modifica password completata.</value>
+  </data>
+  <data name="LoginFacebook" xml:space="preserve">
+    <value>Accedi con Facebook</value>
+  </data>
+  <data name="ChangeOnSocialNetwork" xml:space="preserve">
+    <value>Gli utenti registrati dai social network, devono cambiare la foto o la password sul social network.!</value>
+  </data>
 </root>

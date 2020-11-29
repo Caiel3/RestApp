@@ -1,6 +1,14 @@
-﻿using Prism.Navigation;
+﻿using Newtonsoft.Json;
+using RestApp.Common.Entities;
+using RestApp.Common.Helpers;
+using RestApp.Common.Request;
+using RestApp.Common.Responses;
+using RestApp.Common.Services;
 using RestApp.Prism.Helpers;
-using System;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using Prism.Commands;
+using Prism.Navigation;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -8,7 +16,6 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using RestApp.Prism.Views;
-using RestApp.Common.Enums;
 
 namespace RestApp.Prism.ViewModels
 {
@@ -19,9 +26,8 @@ namespace RestApp.Prism.ViewModels
         private readonly IFilesHelper _filesHelper;
         private ImageSource _image;
         private UserResponse _user;
-        private bool _isRestAppUser;
 
-
+       
         private bool _isRunning;
         private bool _isEnabled;
         private MediaFile _file;

@@ -90,6 +90,59 @@ namespace RestApp.Prism.Helpers
         public static string UserTypePlaceHolder => Resource.UserTypePlaceHolder;
         public static string UserTypeAdminRestaurant => Resource.UserTypeAdminRestaurant;
 
+        public static string Qualifications => Resource.Qualifications;
+
+        public static string QualificationNumber => Resource.QualificationNumber;
+
+        public static string Details => Resource.Details;
+        public static string DescripcionEmpty => Resource.DescripcionEmpty;
+        public static string Name => Resource.Name;
+        public static string Descripcion => Resource.Descripcion;
+        public static string PointSale => Resource.PointSale;
+        public static string Reservation => Resource.Reservation;
+        public static string Search => Resource.Search;
+        public static string RemarksPlaceHolder => Resource.RemarksPlaceHolder;
+        public static string QualificationError => Resource.QualificationError;
+        public static string NewQualification => Resource.NewQualification; 
+        public static string Save => Resource.Save;
+        public static string LoginFirstMessage => Resource.LoginFirstMessage;
+        public static string RestaurantCheck => Resource.RestaurantCheck;
+        public static string PictureSource => Resource.PictureSource;
+        public static string Cancel => Resource.Cancel;
+        public static string FromCamera => Resource.FromCamera;
+        public static string FromGallery => Resource.FromGallery;
+        public static string NoCameraSupported => Resource.NoCameraSupported;
+        public static string NoGallerySupported => Resource.NoGallerySupported;
+        public static string ChangePassword => Resource.ChangePassword;
+        public static string ChangeUserMessage => Resource.ChangeUserMessage;
+
+        public static string ConfirmNewPassword => Resource.ConfirmNewPassword;
+
+        public static string ConfirmNewPasswordError1 => Resource.ConfirmNewPasswordError1;
+
+        public static string ConfirmNewPasswordError2 => Resource.ConfirmNewPasswordError2;
+
+        public static string ConfirmNewPasswordPlaceHolder => Resource.ConfirmNewPasswordPlaceHolder;
+
+        public static string CurrentPassword => Resource.CurrentPassword;
+
+        public static string CurrentPasswordError => Resource.CurrentPasswordError;
+
+        public static string CurrentPasswordPlaceHolder => Resource.CurrentPasswordPlaceHolder;
+
+        public static string NewPassword => Resource.NewPassword;
+
+        public static string NewPasswordError => Resource.NewPasswordError;
+
+        public static string NewPasswordPlaceHolder => Resource.NewPasswordPlaceHolder;
+
+        public static string Error005 => Resource.Error005;
+
+        public static string ChangePassworrdMessage => Resource.ChangePassworrdMessage;
+
+        public static string LoginFacebook => Resource.LoginFacebook;
+
+        public static string ChangeOnSocialNetwork => Resource.ChangeOnSocialNetwork;
 
     }
 
