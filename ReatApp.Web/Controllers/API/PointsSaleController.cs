@@ -28,7 +28,6 @@ namespace ReatApp.Web.Controllers.API
                 .ToListAsync();
             return Ok(pointsSales);
 
-
         }
     }
 }
