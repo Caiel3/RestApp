@@ -484,6 +484,15 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restaurant Admin.
+        /// </summary>
+        internal static string UserTypeAdminRestaurant {
+            get {
+                return ResourceManager.GetString("UserTypeAdminRestaurant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User type....
         /// </summary>
         internal static string UserTypePlaceHolder {

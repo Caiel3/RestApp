@@ -267,4 +267,7 @@
   <data name="UserTypePlaceHolder" xml:space="preserve">
     <value>Tipo utente</value>
   </data>
+  <data name="UserTypeAdminRestaurant" xml:space="preserve">
+    <value>Amministratore del ristorante</value>
+  </data>
 </root>

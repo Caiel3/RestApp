@@ -13,5 +13,6 @@ namespace RestApp.Prism.ViewModels
             _navigationService = navigationService;
             Title = Languages.Catalogue;
         }
+
     }
 }

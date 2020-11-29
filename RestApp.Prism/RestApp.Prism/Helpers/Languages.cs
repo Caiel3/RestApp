@@ -86,8 +86,9 @@ namespace RestApp.Prism.Helpers
         public static string RegisterMessge => Resource.RegisterMessge;
         public static string UserType => Resource.UserType;
         public static string UserRestaurant => Resource.UserRestaurant;
-        public static string UserUser => Resource.UserUser;
+        public static string UserUser => Resource.UserUser; 
         public static string UserTypePlaceHolder => Resource.UserTypePlaceHolder;
+        public static string UserTypeAdminRestaurant => Resource.UserTypeAdminRestaurant;
 
 
     }
