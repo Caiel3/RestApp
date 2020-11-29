@@ -68,48 +68,7 @@ namespace RestApp.Prism.ViewModels
             set => SetProperty(ref _password, value);
         }
 
-        private async void LoginFacebookAsync()
-        {
-            try
-            {
-
-                if (_facebookService.IsLoggedIn)
-                {
-                    _facebookService.Logout();
-                }
-
-                async void userDataDelegate(object sender, FBEventArgs<string> e)
-                {
-                    switch (e.Status)
-                    {
-                        case FacebookActionStatus.Completed:
-                            FacebookProfile facebookProfile = await Task.Run(() => JsonConvert.DeserializeObject<FacebookProfile>(e.Data));
-                            break;
-                        case FacebookActionStatus.Canceled:
-                            await App.Current.MainPage.DisplayAlert("Facebook Auth", "Canceled", "Ok");
-                            break;
-                        case FacebookActionStatus.Error:
-                            await App.Current.MainPage.DisplayAlert("Facebook Auth", "Error", "Ok");
-                            break;
-                        case FacebookActionStatus.Unauthorized:
-                            await App.Current.MainPage.DisplayAlert("Facebook Auth", "Unauthorized", "Ok");
-                            break;
-                    }
-
-                    _facebookService.OnUserData -= userDataDelegate;
-                }
-
-                _facebookService.OnUserData += userDataDelegate;
-
-                string[] fbRequestFields = { "email", "first_name", "picture", "gender", "last_name" };
-                string[] fbPermisions = { "email" };
-                await _facebookService.RequestUserDataAsync(fbRequestFields, fbPermisions);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
-        }
+   
 
         private async void LoginFacebookAsync()
         {

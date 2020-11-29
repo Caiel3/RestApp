@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using RestApp.Prism.Views;
+using RestApp.Common.Enums;
 
 namespace RestApp.Prism.ViewModels
 {
@@ -26,8 +27,8 @@ namespace RestApp.Prism.ViewModels
         private readonly IFilesHelper _filesHelper;
         private ImageSource _image;
         private UserResponse _user;
+        private bool _isRestAppUser;
 
-       
         private bool _isRunning;
         private bool _isEnabled;
         private MediaFile _file;
