@@ -2,6 +2,7 @@
 using ReatApp.Web.Data.Entities;
 using ReatApp.Web.Models;
 using RestApp.Common.Enums;
+using RestApp.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,8 @@ namespace ReatApp.Web.Helpers
         Task<string> GeneratePasswordResetTokenAsync(User user);
 
         Task<IdentityResult> ResetPasswordAsync(User user, string token, string password);
+
+        Task<User> AddUserAsync(FacebookProfile model);
 
     }
 

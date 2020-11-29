@@ -12,7 +12,7 @@ namespace ReatApp.Web.Data.Entities
 
         public DateTime Date { get; set; }
 
-        public UserHelper User { get; set; }
+        public UserHelper_temp User { get; set; }
 
         public PointSaleHelper pointSale { get; set; }
 

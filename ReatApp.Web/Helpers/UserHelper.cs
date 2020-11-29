@@ -4,6 +4,7 @@ using ReatApp.Web.Data;
 using ReatApp.Web.Data.Entities;
 using ReatApp.Web.Models;
 using RestApp.Common.Enums;
+using RestApp.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -139,6 +140,33 @@ namespace ReatApp.Web.Helpers
         public async Task<IdentityResult> ResetPasswordAsync(User user, string token, string password)
         {
             return await _userManager.ResetPasswordAsync(user, token, password);
+        }
+        public async Task<User> AddUserAsync(FacebookProfile model)
+        {
+            User userEntity = new User
+            {
+                Address = "...",
+                Document = "...",
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                ImageFacebook = model.Picture?.Data?.Url,
+                PhoneNumber = "...",              
+                UserName = model.Email,
+                UserType = UserType.User,
+                LoginType = LoginType.Facebook,
+                ImageId = Guid.Empty
+            };
+
+            IdentityResult result = await _userManager.CreateAsync(userEntity, model.Id);
+            if (result != IdentityResult.Success)
+            {
+                return null;
+            }
+
+            User newUser = await GetUserAsync(model.Email);
+            await AddUserToRoleAsync(newUser, userEntity.UserType.ToString());
+            return newUser;
         }
 
 

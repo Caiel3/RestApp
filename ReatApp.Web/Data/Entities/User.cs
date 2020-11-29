@@ -31,10 +31,31 @@ namespace ReatApp.Web.Data.Entities
         public Guid ImageId { get; set; }
 
         //TODO: Pending to put the correct paths
+
+        [Display(Name = "Login Type")]
+        public LoginType LoginType { get; set; }
+
+        public string ImageFacebook { get; set; }
+
         [Display(Name = "Image")]
-        public string ImageFullPath => ImageId == Guid.Empty
-            ? $"https://restappdistribuida.azurewebsites.net/images/noimage.png"
-            : $"https://onsale.blob.core.windows.net/users/{ImageId}";
+        public string ImageFullPath
+        {
+            get
+            {
+                if (LoginType == LoginType.Facebook && string.IsNullOrEmpty(ImageFacebook) ||
+                    LoginType == LoginType.RestApp && ImageId == Guid.Empty)
+                {
+                    return $"https://onsaleprepweb.azurewebsites.net/images/noimage.png";
+                }
+
+                if (LoginType == LoginType.Facebook)
+                {
+                    return ImageFacebook;
+                }
+
+                return $"https://programaciondistribuida.blob.core.windows.net/users/{ImageId}";
+            }
+        }
 
         [Display(Name = "User Type")]
         public UserType UserType { get; set; }

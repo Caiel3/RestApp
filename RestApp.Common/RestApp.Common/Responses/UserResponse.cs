@@ -23,11 +23,32 @@ namespace RestApp.Common.Responses
 
     public Guid ImageId { get; set; }
 
-    public string ImageFullPath => ImageId == Guid.Empty
-        ? $"https://onsalezulu.azurewebsites.net/images/noimage.png"
-        : $"https://onsale.blob.core.windows.net/users/{ImageId}";
 
-    public UserType UserType { get; set; }
+        public string ImageFacebook { get; set; }
+
+        public LoginType LoginType { get; set; }
+
+        public string ImageFullPath
+        {
+            get
+            {
+                if (LoginType == LoginType.Facebook && string.IsNullOrEmpty(ImageFacebook) ||
+                    LoginType == LoginType.RestApp && ImageId == Guid.Empty)
+                {
+                    return $"https://onsaleprepweb.azurewebsites.net/images/noimage.png";
+                }
+
+                if (LoginType == LoginType.Facebook)
+                {
+                    return ImageFacebook;
+                }
+
+                return $"https://programaciondistribuida.blob.core.windows.net/users/{ImageId}";
+            }
+        }
+
+
+        public UserType UserType { get; set; }
 
 
     public string FullName => $"{FirstName} {LastName}";

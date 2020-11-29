@@ -18,7 +18,7 @@ namespace ReatApp.Web.Data.Entities
         [JsonIgnore]
         public PointSaleHelper PointSale { get; set; }
 
-        public UserHelper User { get; set; }
+        public UserHelper_temp User { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N2}")]
         public float Score { get; set; }

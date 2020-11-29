@@ -1,12 +1,17 @@
 ﻿using Newtonsoft.Json;
+using Plugin.FacebookClient;
 using Prism.Commands;
 using Prism.Navigation;
 using RestApp.Common.Helpers;
+using RestApp.Common.Models;
 using RestApp.Common.Request;
 using RestApp.Common.Responses;
 using RestApp.Common.Services;
 using RestApp.Prism.Helpers;
 using RestApp.Prism.Views;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace RestApp.Prism.ViewModels
@@ -21,6 +26,9 @@ namespace RestApp.Prism.ViewModels
         private DelegateCommand _forgotPasswordCommand;
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
+        private readonly IFacebookClient _facebookService = CrossFacebookClient.Current;
+        private DelegateCommand _loginFacebookCommand;
+
 
         public LoginPageViewModel(INavigationService navigationService,IApiService apiService) 
             : base(navigationService)
@@ -36,6 +44,9 @@ namespace RestApp.Prism.ViewModels
         public DelegateCommand RegisterCommand => _registerCommand ?? (_registerCommand = new DelegateCommand(RegisterAsync));
 
         public DelegateCommand ForgotPasswordCommand => _forgotPasswordCommand ?? (_forgotPasswordCommand = new DelegateCommand(ForgotPasswordAsync));
+
+        public DelegateCommand LoginFacebookCommand => _loginFacebookCommand ?? (_loginFacebookCommand = new DelegateCommand(LoginFacebookAsync));
+  
 
         public bool IsRunning
         {
@@ -55,6 +66,49 @@ namespace RestApp.Prism.ViewModels
         {
             get => _password;
             set => SetProperty(ref _password, value);
+        }
+
+        private async void LoginFacebookAsync()
+        {
+            try
+            {
+
+                if (_facebookService.IsLoggedIn)
+                {
+                    _facebookService.Logout();
+                }
+
+                async void userDataDelegate(object sender, FBEventArgs<string> e)
+                {
+                    switch (e.Status)
+                    {
+                        case FacebookActionStatus.Completed:
+                            FacebookProfile facebookProfile = await Task.Run(() => JsonConvert.DeserializeObject<FacebookProfile>(e.Data));
+                            break;
+                        case FacebookActionStatus.Canceled:
+                            await App.Current.MainPage.DisplayAlert("Facebook Auth", "Canceled", "Ok");
+                            break;
+                        case FacebookActionStatus.Error:
+                            await App.Current.MainPage.DisplayAlert("Facebook Auth", "Error", "Ok");
+                            break;
+                        case FacebookActionStatus.Unauthorized:
+                            await App.Current.MainPage.DisplayAlert("Facebook Auth", "Unauthorized", "Ok");
+                            break;
+                    }
+
+                    _facebookService.OnUserData -= userDataDelegate;
+                }
+
+                _facebookService.OnUserData += userDataDelegate;
+
+                string[] fbRequestFields = { "email", "first_name", "picture", "gender", "last_name" };
+                string[] fbPermisions = { "email" };
+                await _facebookService.RequestUserDataAsync(fbRequestFields, fbPermisions);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
         }
 
         private async void LoginAsync()
@@ -135,7 +189,4 @@ namespace RestApp.Prism.ViewModels
             await _navigationService.NavigateAsync(nameof(RegisterPage));
         }
     }
-
-
-
 }

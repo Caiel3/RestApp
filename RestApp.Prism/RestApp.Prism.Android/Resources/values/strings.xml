@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">RestApp</string>
+	<string name="facebook_app_name">OnSalePrep</string>
+	<string name="facebook_app_id">204573297900046</string>
+	<string name="fb_login_protocol_scheme">fb204573297900046</string>
+
 </resources>

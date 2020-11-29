@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ReatApp.Web.Data.Entities
 {
-    public class UserHelper
+    public class UserHelper_temp
     {
         [MaxLength(20)]
         [Required]

@@ -384,4 +384,10 @@
   <data name="ChangePassworrdMessage" xml:space="preserve">
     <value>Modifica password completata.</value>
   </data>
+  <data name="LoginFacebook" xml:space="preserve">
+    <value>Accedi con Facebook</value>
+  </data>
+  <data name="ChangeOnSocialNetwork" xml:space="preserve">
+    <value>Gli utenti registrati dai social network, devono cambiare la foto o la password sul social network.!</value>
+  </data>
 </root>
