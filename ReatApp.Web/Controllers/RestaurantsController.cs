@@ -29,21 +29,36 @@ namespace ReatApp.Web.Controllers
             _converterHelper = converterHelper;
         }
 
+        //public async Task<IActionResult> Index()
+        //{
+
+        //    //User user = await _userHelper.GetUserAsync(User.Identities[0].Name);
+
+        //    string email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+        //    User user = await _userHelper.GetUserAsync(email);
+        //    if (user == null)
+        //    {
+        //        return NotFound("Error001");
+        //    }
+
+        //    return View(await _context.Restaurants
+        //        .Include(u => u.User)
+        //        .Where(d => d.User == user
+        //                //_context.Users
+        //                //.where(u => u.User == User.Claims)
+        //                //d.User == User.Identities
+        //                )
+        //        .ToListAsync());
+        //}
+
         public async Task<IActionResult> Index()
         {
 
             //User user = await _userHelper.GetUserAsync(User.Identities[0].Name);
 
-            string email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-            User user = await _userHelper.GetUserAsync(email);
-            if (user == null)
-            {
-                return NotFound("Error001");
-            }
-
             return View(await _context.Restaurants
                 .Include(u => u.User)
-                .Where(d => d.User == user
+                .Where(d => d.User == User.Claims
                         //_context.Users
                         //.where(u => u.User == User.Claims)
                         //d.User == User.Identities
