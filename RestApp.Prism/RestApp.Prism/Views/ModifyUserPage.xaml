@@ -3,13 +3,82 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+           	 xmlns:i18n="clr-namespace:RestApp.Prism.Helpers"
              x:Class="RestApp.Prism.Views.ModifyUserPage"
+             BackgroundColor="{StaticResource ColorBackground}"
              Title="{Binding Title}">
 
-    <StackLayout Padding="5">
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     Padding="5">
+            <ScrollView>
+                <StackLayout Spacing="0">
+                    <ffimageloading:CachedImage Aspect="AspectFit"
+                                                Source="{Binding Image}" 
+                                                CacheDuration= "50"
+                                                HeightRequest="150"
+                                                Margin="5"
+                                                RetryCount= "3"
+                                                RetryDelay= "600">
+                        
+                        <ffimageloading:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                        </ffimageloading:CachedImage.GestureRecognizers>
+                    </ffimageloading:CachedImage>
 
-    </StackLayout>
+                    <inputLayout:SfTextInputLayout Hint="{i18n:Translate Document}" 
+                                                   ContainerType="Outlined">
+                        <Entry Placeholder="{i18n:Translate DocumentPlaceHolder}" 
+                               Text="{Binding User.Document}" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout Hint="{i18n:Translate FirstName}" 
+                                                   ContainerType="Outlined">
+                        <Entry Placeholder="{i18n:Translate FirstNamePlaceHolder}" 
+                               IsEnabled="{Binding IsRestAppUser}"
+                               Text="{Binding User.FirstName}" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout Hint="{i18n:Translate LastName}" 
+                                                   ContainerType="Outlined">
+                        <Entry Placeholder="{i18n:Translate LastName}" 
+                               IsEnabled="{Binding IsRestAppUser}"
+                               Text="{Binding User.LastName}" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout Hint="{i18n:Translate Address}" 
+                                                   ContainerType="Outlined">
+                        <Entry Placeholder="{i18n:Translate AddressPlaceHolder}" 
+                               Text="{Binding User.Address}" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout Hint="{i18n:Translate Phone} " 
+                                                   ContainerType="Outlined">
+                        <Entry Placeholder="{i18n:Translate PhonePlaceHolder}" 
+                               Keyboard="Telephone"
+                               Text="{Binding User.PhoneNumber}" />
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="EndAndExpand">
+                <Button Command="{Binding SaveCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="{i18n:Translate Save}"/>
+                <Button Command="{Binding ChangePasswordCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Style="{StaticResource SecondaryButton}"
+                        Text="{i18n:Translate ChangePassword}"/>
+            </StackLayout>
+        </StackLayout>
+       
+    </AbsoluteLayout>
 
 </ContentPage>
 
