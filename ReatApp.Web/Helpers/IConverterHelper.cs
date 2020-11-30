@@ -14,7 +14,7 @@ namespace ReatApp.Web.Helpers
 
         Task<PointSale> ToPointSaleAsync(PointSaleViewModel model, bool isNew);
 
-        PointSaleViewModel ToPointSaleViewModel(PointSale pointsale);
+        PointSaleViewModel ToPointSaleViewModel(PointSale pointsale, string Id, string Type);
 
 
     }

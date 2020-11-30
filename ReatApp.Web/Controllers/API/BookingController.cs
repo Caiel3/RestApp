@@ -63,6 +63,7 @@ namespace ReatApp.Web.Controllers.API
             List<Booking> bookings = await _context.bookings
                 .Include(c => c.User)
                 .Include(c => c.pointSale)
+                .ThenInclude(c => c.Restaurant)
                 .ToListAsync();
             return Ok(bookings);
 

@@ -14,13 +14,36 @@ namespace ReatApp.Web.Helpers
             _context = context;
         }
 
-        public IEnumerable<SelectListItem> GetComboRestaurants()
+        public IEnumerable<SelectListItem> GetComboRestaurants(string Id, string Type)
         {
-            List<SelectListItem> list = _context.Restaurants.Select(t => new SelectListItem
+            List<SelectListItem> list ;
+            if (Type == "Admin")
             {
-                Text = t.Name,
-                Value = $"{t.Id}"
-            })
+                 list = _context.Restaurants.Select(t => new SelectListItem
+                   {
+                       Text = t.Name,
+                       Value = $"{t.Id}"
+
+                   })
+                   .OrderBy(t => t.Text)
+                   .ToList();
+
+                list.Insert(0, new SelectListItem
+                {
+                    Text = "[Select a restaurant...]",
+                    Value = "0"
+                });
+
+                return list;
+            }
+
+            list = _context.Restaurants.Where(q => q.UserId == Id)
+                .Select(t => new SelectListItem
+                {
+                    Text = t.Name,
+                    Value = $"{t.Id}"
+
+                })
                 .OrderBy(t => t.Text)
                 .ToList();
 

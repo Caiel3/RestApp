@@ -17,7 +17,7 @@ namespace ReatApp.Web.Data.Entities
         [Display(Name = "Image")]
         public Guid ImageId { get; set; }
 
-        public User User { get; set; }
+        public string UserId { get; set; }
 
         //TODO: Pending to put the correct paths
         [Display(Name = "Image")]

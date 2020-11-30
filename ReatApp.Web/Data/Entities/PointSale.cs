@@ -1,4 +1,5 @@
 ﻿using RestApp.Common.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -22,6 +23,12 @@ namespace ReatApp.Web.Data.Entities
 
         public int Tables { get; set; }
 
+        [DisplayFormat(DataFormatString = "{hh:mm}")]
+        public DateTime HourStart { get; set; }
+
+        [DisplayFormat(DataFormatString = "{hh:mm}")]
+        public DateTime HourFinish { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:N4}")]
         public double Latitude { get; set; }
 
@@ -33,7 +40,6 @@ namespace ReatApp.Web.Data.Entities
 
         [DataType(DataType.MultilineText)]
         public string Remarks { get; set; }
-
 
         public ICollection<Catalogue> CatalogueImage { get; set; }
 

@@ -6,7 +6,6 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true"
            	 xmlns:i18n="clr-namespace:RestApp.Prism.Helpers"
-             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
              x:Class="RestApp.Prism.Views.CataloguePage"
              BackgroundColor="{StaticResource ColorBackground}"
              Title="{Binding Title}">
@@ -14,10 +13,7 @@
     <StackLayout Padding="5">
         <ScrollView>
             <StackLayout>
-                <rating:SfRating IsEnabled="False"
-                                 HorizontalOptions="Center"
-                                 Precision="Exact"
-                                 Value="{Binding Qualification.Score}"/>
+               
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>

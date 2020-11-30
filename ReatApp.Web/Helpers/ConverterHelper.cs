@@ -24,6 +24,7 @@ namespace ReatApp.Web.Helpers
                 Id = isNew ? 0 : model.Id,
                 ImageId = imageId,
                 Name = model.Name,
+                UserId = model.UserId,
                 Description = model.Description
             };
         }
@@ -55,11 +56,13 @@ namespace ReatApp.Web.Helpers
             };
         }
 
-        public PointSaleViewModel ToPointSaleViewModel(PointSale pointSale)
+        public PointSaleViewModel ToPointSaleViewModel(PointSale pointSale,string Id,string Type)
         {
+
+
             return new PointSaleViewModel
             {
-                Restaurants = _combosHelper.GetComboRestaurants(),
+                Restaurants = _combosHelper.GetComboRestaurants(Id,Type),
                 Restaurant = pointSale.Restaurant,
                 RestaurantId = pointSale.Restaurant.Id,
                 Description = pointSale.Description,

@@ -5,7 +5,7 @@ namespace ReatApp.Web.Helpers
 {
     public interface ICombosHelper
     {
-        IEnumerable<SelectListItem> GetComboRestaurants();
+        IEnumerable<SelectListItem> GetComboRestaurants(string Id, string Type);
     }
 
 

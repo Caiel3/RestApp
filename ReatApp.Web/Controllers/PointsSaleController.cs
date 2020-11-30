@@ -20,9 +20,12 @@ namespace ReatApp.Web.Controllers
         private readonly IBlobHelper _blobHelper;
         private readonly ICombosHelper _combosHelper;
         private readonly IConverterHelper _converterHelper;
+        private readonly IUserHelper _userHelper;
 
-        public PointsSaleController(DataContext context, IBlobHelper blobHelper, ICombosHelper combosHelper, IConverterHelper converterHelper)
+        public PointsSaleController(
+            IUserHelper userHelper, DataContext context, IBlobHelper blobHelper, ICombosHelper combosHelper, IConverterHelper converterHelper)
         {
+            _userHelper = userHelper;
             _context = context;
             _blobHelper = blobHelper;
             _combosHelper = combosHelper;
@@ -31,18 +34,44 @@ namespace ReatApp.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+
+            string email = User.Identity.Name;
+
+            User user = await _userHelper.GetUserAsync(email);
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
+            if (user.UserType.ToString() == "Admin")
+            {
+                return View(await _context.PointSale
+               .Include(p => p.Restaurant)
+               .Include(p => p.CatalogueImage)
+               .Include(q => q.Qualifications)
+               .ToListAsync());
+            }
+
             return View(await _context.PointSale
                 .Include(p => p.Restaurant)
                 .Include(p => p.CatalogueImage)
                 .Include(q => q.Qualifications)
+                .Where(q => q.Restaurant.UserId == user.Id )
                 .ToListAsync());
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            string email = User.Identity.Name;
+
+            User user = await _userHelper.GetUserAsync(email);
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
+
             PointSaleViewModel model = new PointSaleViewModel
             {
-                Restaurants = _combosHelper.GetComboRestaurants(),
+                Restaurants = _combosHelper.GetComboRestaurants(user.Id, user.UserType.ToString()),
             };
 
             return View(model);
@@ -52,10 +81,20 @@ namespace ReatApp.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PointSaleViewModel model)
         {
+            string email = User.Identity.Name;
+
+            User user = await _userHelper.GetUserAsync(email);
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                  
+
                     PointSale pointSale = await _converterHelper.ToPointSaleAsync(model, true);
 
                     if (model.ImageFile != null)
@@ -88,12 +127,19 @@ namespace ReatApp.Web.Controllers
                 }
             }
 
-            model.Restaurants = _combosHelper.GetComboRestaurants();
+            model.Restaurants = _combosHelper.GetComboRestaurants(user.Id, user.UserType.ToString());
             return View(model);
         }
 
         public async Task<IActionResult> Edit(int? id)
         {
+            string email = User.Identity.Name;
+
+            User user = await _userHelper.GetUserAsync(email);
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
             if (id == null)
             {
                 return NotFound();
@@ -108,7 +154,7 @@ namespace ReatApp.Web.Controllers
                 return NotFound();
             }
 
-            PointSaleViewModel model = _converterHelper.ToPointSaleViewModel(pointSale);
+            PointSaleViewModel model = _converterHelper.ToPointSaleViewModel(pointSale,user.Id, user.UserType.ToString());
             return View(model);
         }
 
@@ -116,6 +162,14 @@ namespace ReatApp.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(PointSaleViewModel model)
         {
+            string email = User.Identity.Name;
+
+            User user = await _userHelper.GetUserAsync(email);
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
+
             if (ModelState.IsValid)
             {
                 try
@@ -155,7 +209,7 @@ namespace ReatApp.Web.Controllers
                 }
             }
 
-            model.Restaurants = _combosHelper.GetComboRestaurants();
+            model.Restaurants = _combosHelper.GetComboRestaurants(user.Id, user.UserType.ToString());
             return View(model);
         }
 
