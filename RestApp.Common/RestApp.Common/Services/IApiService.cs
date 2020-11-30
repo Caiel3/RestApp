@@ -14,6 +14,7 @@ namespace RestApp.Common.Services
         Task<Response> ModifyUserAsync(string urlBase, string servicePrefix, string controller, UserRequest userRequest, string token);
         Task<Response> ChangePasswordAsync(string urlBase, string servicePrefix, string controller, ChangePasswordRequest changePasswordRequest, string token);
         Task<Response> GetTokenAsync(string urlBase, string servicePrefix, string controller, FacebookProfile request);
+        Task<Response> GetListReservationsAsync<T>(string urlBase, string servicePrefix, string controller,string token);
 
     }
 

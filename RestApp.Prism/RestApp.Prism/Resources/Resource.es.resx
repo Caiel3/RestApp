@@ -277,7 +277,7 @@
     <value>Numero de calificaciones</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>Fecha:</value>
+    <value>Fecha</value>
   </data>
   <data name="Remarks" xml:space="preserve">
     <value>Notas:</value>
@@ -389,5 +389,8 @@
   </data>
   <data name="ChangeOnSocialNetwork" xml:space="preserve">
     <value>Los usuarios registrados por redes sociales, deberán cambiar la foto o contraseña en la red social.!</value>
+  </data>
+  <data name="Restaurant" xml:space="preserve">
+    <value>Restaurante</value>
   </data>
 </root>

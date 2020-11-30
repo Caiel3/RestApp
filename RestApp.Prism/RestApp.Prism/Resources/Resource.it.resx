@@ -390,4 +390,7 @@
   <data name="ChangeOnSocialNetwork" xml:space="preserve">
     <value>Gli utenti registrati dai social network, devono cambiare la foto o la password sul social network.!</value>
   </data>
+  <data name="Restaurant" xml:space="preserve">
+    <value>Ristorante</value>
+  </data>
 </root>

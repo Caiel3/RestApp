@@ -187,11 +187,20 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User updated..
+        ///   Looks up a localized string similar to The password and the confirmation doesn&apos;t match..
         /// </summary>
         internal static string ConfirmNewPasswordError2 {
             get {
                 return ResourceManager.GetString("ConfirmNewPasswordError2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User updated..
+        /// </summary>
+        internal static string ConfirmNewPasswordError2_Duplicate_1_ {
+            get {
+                return ResourceManager.GetString("ConfirmNewPasswordError2_Duplicate[1]", resourceCulture);
             }
         }
         
@@ -768,6 +777,15 @@ namespace RestApp.Prism.Resources {
         internal static string Reservation {
             get {
                 return ResourceManager.GetString("Reservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restaurant.
+        /// </summary>
+        internal static string Restaurant {
+            get {
+                return ResourceManager.GetString("Restaurant", resourceCulture);
             }
         }
         

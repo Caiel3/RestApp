@@ -4,12 +4,75 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+              xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
              x:Class="RestApp.Prism.Views.ViewReservationPage"
+             xmlns:i18n="clr-namespace:RestApp.Prism.Helpers"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              Title="{Binding Title}">
 
-    <StackLayout Padding="5">
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     Padding="5"/>
 
-    </StackLayout>
+        <StackLayout Padding="5">
+            <CollectionView ItemsSource="{Binding bookings}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                          
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                           
+                            <StackLayout Grid.Column="1"
+                                     VerticalOptions="Center">
+                                <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   FontAttributes="Bold"
+                                   Text="{i18n:Translate Restaurant}"
+                                   TextDecorations="Underline"/>
+                                <Label Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="Nombre restaurante API"/>
+                                <Label Grid.Row="2"
+                                   Grid.Column="0"
+                                   FontAttributes="Bold"
+                                   Text="{i18n:Translate PointSale}"
+                                   TextDecorations="Underline"/>
+                                <Label Grid.Row="3"
+                                   Grid.Column="0"
+                                   Text="{Binding pointSale.Name}"/>
+                                <Label Grid.Row="4"
+                                   Grid.Column="0"
+                                   FontAttributes="Bold"
+                                   Text="{i18n:Translate Date}"
+                                   TextDecorations="Underline"/>
+                                <Label Grid.Row="5"
+                                   Grid.Column="0"
+                                   Text="{Binding Date}"/>
+                                <Label Grid.Row="6"
+                                   Grid.Column="0"
+                                   FontAttributes="Bold"
+                                   Text="{i18n:Translate UserUser}"
+                                   TextDecorations="Underline"/>
+                                <Label Grid.Row="7"
+                                   Grid.Column="0"
+                                   Text="{Binding User.FullName}"/>
+                                <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+                            </StackLayout>                            
+                        </Grid>
 
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+      
+    </AbsoluteLayout>
 </ContentPage>
 
