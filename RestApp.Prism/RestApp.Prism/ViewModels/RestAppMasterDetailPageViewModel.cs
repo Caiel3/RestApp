@@ -17,15 +17,24 @@ namespace RestApp.Prism.ViewModels
     public class RestAppMasterDetailPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+
+        private static RestAppMasterDetailPageViewModel _instance;
+
         private UserResponse _user;
 
         public RestAppMasterDetailPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+            _instance = this;
             _navigationService = navigationService;
             LoadMenus();
             LoadUser();
         }
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
+
+        public static RestAppMasterDetailPageViewModel GetInstance()
+        {
+            return _instance;
+        }
 
         public UserResponse User
         {
@@ -33,7 +42,7 @@ namespace RestApp.Prism.ViewModels
             set => SetProperty(ref _user, value);
         }
 
-        private void LoadUser()
+        public void LoadUser()
         {
             if (Settings.IsLogin)
             {
@@ -61,7 +70,7 @@ namespace RestApp.Prism.ViewModels
             new Menu
             {
                 Icon = "ic_restaurant",
-                PageName = $"{nameof(RestaurantTabbedPage)}",
+                PageName = $"{nameof(RestaurantPage)}",
                 Title = Languages.Restaurants
             },
             new Menu
@@ -72,24 +81,62 @@ namespace RestApp.Prism.ViewModels
             },
             new Menu
             {
-                Icon = "ic_add_circle",
-                PageName = $"{nameof(AddPointSalePage)}",
-                Title = Languages.AddPoinSale
-            },
-            new Menu
-            {
                 Icon = "ic_room",
                 PageName = $"{nameof(RestaurantLocationPage)}",
                 Title = Languages.RestaurantsLocation
-            },
-            new Menu
-            {
-                Icon = "ic_alarm_on",
-                PageName = $"{nameof(BussinesHourPage)}",
-                Title = Languages.BussinesHour
             }
 
+
         };
+            if (Settings.IsRestaurant)
+            {
+                menus = new List<Menu> {
+                    
+                    new Menu
+                    {
+                        Icon = "ic_fingerprint",
+                        PageName = $"{nameof(LoginPage)}",
+                        Title = Settings.IsLogin? Languages.Logout : Languages.Login
+                    },
+                    new Menu
+                    {
+                        Icon = "ic_person",
+                        PageName = $"{nameof(ModifyUserPage)}",
+                        Title = Languages.ModifyUser
+                    },
+                    new Menu
+                    {
+                        Icon = "ic_restaurant",
+                        PageName = $"{nameof(RestaurantPage)}",
+                        Title = Languages.Restaurants
+                    },
+                    new Menu
+                    {
+                        Icon = "ic_chrome_reader_mode",
+                        PageName = $"{nameof(ViewReservationPage)}",
+                        Title = Languages.ViewReservation
+                    },
+                    new Menu
+                    {
+                        Icon = "ic_room",
+                        PageName = $"{nameof(RestaurantLocationPage)}",
+                        Title = Languages.RestaurantsLocation
+                    },
+                    new Menu
+                        {
+                            Icon = "ic_alarm_on",
+                            PageName = $"{nameof(BussinesHourPage)}",
+                            Title = Languages.BussinesHour
+                        },
+                    new Menu
+                        {
+                            Icon = "ic_add_circle",
+                            PageName = $"{nameof(AddPointSalePage)}",
+                            Title = Languages.AddPoinSale
+                        }
+
+                };
+            }
 
             Menus = new ObservableCollection<MenuItemViewModel>(
                 menus.Select(m => new MenuItemViewModel(_navigationService)
@@ -99,7 +146,7 @@ namespace RestApp.Prism.ViewModels
                     Title = m.Title,
                     IsLoginRequired = m.IsLoginRequired
                 }).ToList());
+            }
         }
-    }
 
-}
+    }

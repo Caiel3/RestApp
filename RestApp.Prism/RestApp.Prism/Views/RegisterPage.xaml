@@ -60,16 +60,9 @@
                                Text="{Binding User.LastName}" />
                     </inputLayout:SfTextInputLayout>
 
-                    <inputLayout:SfTextInputLayout Hint="{i18n:Translate UserType}" 
+                    <inputLayout:SfTextInputLayout Hint="{i18n:Translate RestaurantCheck}" 
                                                    ContainerType="Outlined">
-                        <Picker ItemDisplayBinding="{Binding Name}"                               
-                                Title="{i18n:Translate UserTypePlaceHolder}">
-                            <Picker.Items>
-                                <x:String>"{i18n:Translate UserType}"</x:String>
-                                <x:String>"{i18n:Translate UserTypeAdminRestaurant}"</x:String>                                
-                            </Picker.Items>
-
-                        </Picker>
+                        <CheckBox IsChecked="{Binding IsRestaurant}"/>
                     </inputLayout:SfTextInputLayout>         
                     
 

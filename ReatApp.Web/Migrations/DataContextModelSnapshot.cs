@@ -266,6 +266,8 @@ namespace ReatApp.Web.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
+                    b.Property<string>("ImageFacebook");
+
                     b.Property<Guid>("ImageId");
 
                     b.Property<string>("LastName")
@@ -275,6 +277,8 @@ namespace ReatApp.Web.Migrations
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<int>("LoginType");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
