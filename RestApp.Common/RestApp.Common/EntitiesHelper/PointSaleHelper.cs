@@ -1,4 +1,5 @@
 ﻿using RestApp.Common.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -34,7 +35,11 @@ namespace ReatApp.Web.Data.Entities
         [DataType(DataType.MultilineText)]
         public string Remarks { get; set; }
 
+        [DisplayFormat(DataFormatString = "{hh:mm}")]
+        public DateTime HourStart { get; set; }
 
+        [DisplayFormat(DataFormatString = "{hh:mm}")]
+        public DateTime HourFinish { get; set; }
         public ICollection<Catalogue> CatalogueImage { get; set; }
 
         [DisplayName("Point Sale Images Number")]

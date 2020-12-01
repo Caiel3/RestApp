@@ -1,7 +1,9 @@
-﻿using Prism.Navigation;
+﻿using Prism.Commands;
+using Prism.Navigation;
 using ReatApp.Web.Data.Entities;
 using RestApp.Common.Entities;
 using RestApp.Prism.Helpers;
+using RestApp.Prism.Views;
 using System.Collections.ObjectModel;
 
 namespace RestApp.Prism.ViewModels
@@ -11,6 +13,7 @@ namespace RestApp.Prism.ViewModels
         private readonly INavigationService _navigationService;
         private PointSaleHelper _pointsale;
         private ObservableCollection<Catalogue> _images;
+        private DelegateCommand _AddReservationCommand;
         public CataloguePageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
@@ -23,6 +26,8 @@ namespace RestApp.Prism.ViewModels
             get => _pointsale;
             set => SetProperty(ref _pointsale, value);
         }
+        public DelegateCommand ChangePasswordCommand => _AddReservationCommand ??
+             (_AddReservationCommand = new DelegateCommand(AddReservation));
         public ObservableCollection<Catalogue> Images
         {
             get => _images;
@@ -40,6 +45,15 @@ namespace RestApp.Prism.ViewModels
             }
         }
 
-
+        private async void AddReservation()
+        {
+            NavigationParameters parameters = new NavigationParameters
+            {
+                {
+                    "pointsale",PointSale
+                }
+            };
+            await _navigationService.NavigateAsync(nameof(ReservationPage),parameters);
+        }
     }
 }

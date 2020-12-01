@@ -144,6 +144,8 @@ namespace RestApp.Prism.Helpers
 
         public static string ChangeOnSocialNetwork => Resource.ChangeOnSocialNetwork;
         public static string Restaurant => Resource.Restaurant;
+        public static string Hour => Resource.Hour;
+        public static string AddReservation => Resource.AddReservation;
 
     }
 

@@ -393,4 +393,10 @@
   <data name="Restaurant" xml:space="preserve">
     <value>Ristorante</value>
   </data>
+  <data name="Hour" xml:space="preserve">
+    <value>Ora</value>
+  </data>
+  <data name="AddReservation" xml:space="preserve">
+    <value>Aggiungi prenotazione</value>
+  </data>
 </root>

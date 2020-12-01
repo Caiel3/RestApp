@@ -39,7 +39,7 @@
                                    TextDecorations="Underline"/>
                                 <Label Grid.Row="1"
                                    Grid.Column="0"
-                                   Text="Nombre restaurante API"/>
+                                   Text="{Binding pointSale.Restaurant.Name}"/>
                                 <Label Grid.Row="2"
                                    Grid.Column="0"
                                    FontAttributes="Bold"

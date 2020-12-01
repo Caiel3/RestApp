@@ -311,6 +311,47 @@ namespace RestApp.Common.Services
                 };
             }
         }
+        public async Task<Response> PostReservationsAsync(string urlBase, string servicePrefix, string controller, ReservationRequest reservationRequest, string token)
+        {
+            try
+            {
+                string request = JsonConvert.SerializeObject(reservationRequest);
+                StringContent content = new StringContent(request, Encoding.UTF8, "application/json");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase)
+                };
 
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+                string url = $"{servicePrefix}{controller}";
+                HttpResponseMessage response = await client.PostAsync(url, content);
+                string result = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = result,
+                    };
+                }
+
+                BookingHelper booking = JsonConvert.DeserializeObject<BookingHelper>(result);
+
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = booking
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+            }
+        }
     }
 }

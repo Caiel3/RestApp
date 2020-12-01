@@ -52,6 +52,7 @@ namespace RestApp.Prism
             containerRegistry.RegisterForNavigation<QualificationDetailPage, QualificationDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<AddQualificationPage, AddQualificationPageViewModel>();
             containerRegistry.RegisterForNavigation<ChangePasswordPage, ChangePasswordPageViewModel>();
+            containerRegistry.RegisterForNavigation<ReservationPage, ReservationPageViewModel>();
         }
     }
 }
