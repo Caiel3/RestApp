@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-             xmlns:i18n="clr-namespace:RestApp.Prism.Helpers"
+             xmlns:i18n="clr-namespace:RestApp.Prism.Helpers"             
              x:Class="RestApp.Prism.Views.ReservationPage"
              Title="{Binding Title}"
              >
