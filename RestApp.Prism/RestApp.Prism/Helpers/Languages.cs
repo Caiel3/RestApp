@@ -146,6 +146,10 @@ namespace RestApp.Prism.Helpers
         public static string Restaurant => Resource.Restaurant;
         public static string Hour => Resource.Hour;
         public static string AddReservation => Resource.AddReservation;
+        public static string DateAnt => Resource.DateAnt;
+        public static string HourOutRange => Resource.HourOutRange;
+        public static string Success => Resource.Success;
+        public static string ReservationSuccess => Resource.ReservationSuccess;
 
     }
 

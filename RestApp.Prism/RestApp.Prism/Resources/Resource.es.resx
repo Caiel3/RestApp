@@ -399,4 +399,16 @@
   <data name="AddReservation" xml:space="preserve">
     <value>Agregar reserva</value>
   </data>
+  <data name="Success" xml:space="preserve">
+    <value>correctamente</value>
+  </data>
+  <data name="DateAnt" xml:space="preserve">
+    <value>La fecha no puede ser vieja</value>
+  </data>
+  <data name="HourOutRange" xml:space="preserve">
+    <value>El restaurante atiende a esta hora</value>
+  </data>
+  <data name="ReservationSuccess" xml:space="preserve">
+    <value>¡Creado correctamente!</value>
+  </data>
 </root>

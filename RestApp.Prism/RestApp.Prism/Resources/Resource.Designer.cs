@@ -268,6 +268,15 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The date cannot be old.
+        /// </summary>
+        internal static string DateAnt {
+            get {
+                return ResourceManager.GetString("DateAnt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Descripcion.
         /// </summary>
         internal static string Descripcion {
@@ -426,6 +435,15 @@ namespace RestApp.Prism.Resources {
         internal static string Hour {
             get {
                 return ResourceManager.GetString("Hour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The restaurant does not serve at this time.
+        /// </summary>
+        internal static string HourOutRange {
+            get {
+                return ResourceManager.GetString("HourOutRange", resourceCulture);
             }
         }
         
@@ -799,6 +817,15 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reserve created successfully.
+        /// </summary>
+        internal static string ReservationSuccess {
+            get {
+                return ResourceManager.GetString("ReservationSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restaurant.
         /// </summary>
         internal static string Restaurant {
@@ -849,6 +876,15 @@ namespace RestApp.Prism.Resources {
         internal static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully.
+        /// </summary>
+        internal static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
         

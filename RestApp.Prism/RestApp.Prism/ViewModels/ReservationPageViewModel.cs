@@ -7,6 +7,7 @@ using RestApp.Common.Request;
 using RestApp.Common.Responses;
 using RestApp.Common.Services;
 using RestApp.Prism.Helpers;
+using RestApp.Prism.Views;
 using Syncfusion.SfBusyIndicator.XForms;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace RestApp.Prism.ViewModels
 {
     class ReservationPageViewModel:ViewModelBase
     {
-        private readonly INavigationService navigationService;
+        private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
         private PointSaleHelper _pointsale;
         private UserHelper_temp _user;     
@@ -30,7 +31,7 @@ namespace RestApp.Prism.ViewModels
         public ReservationPageViewModel(INavigationService _navigationService,IApiService apiService)
             :base(_navigationService)
         {
-            navigationService = _navigationService;
+            _navigationService = _navigationService;
             _apiService = apiService;
             Title = Languages.Reservation;
         }
@@ -113,19 +114,19 @@ namespace RestApp.Prism.ViewModels
                 await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
                 return;
             }
-            await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
+            await App.Current.MainPage.DisplayAlert(Languages.Success, Languages.ReservationSuccess, Languages.Accept);            
         }
 
         private async Task<bool> ValidateDataAsync()
         {
             if (HourReservation>PointSale.HourStart.TimeOfDay && HourReservation < PointSale.HourFinish.TimeOfDay)
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.DocumentError, Languages.Accept);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.HourOutRange, Languages.Accept);
                 return false;
             }
             if (DateReservation < System.DateTime.Now)
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.DocumentError, Languages.Accept);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.DateAnt, Languages.Accept);
                 return false;
             }
 
