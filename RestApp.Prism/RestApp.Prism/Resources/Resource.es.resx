@@ -390,4 +390,25 @@
   <data name="ChangeOnSocialNetwork" xml:space="preserve">
     <value>Los usuarios registrados por redes sociales, deberán cambiar la foto o contraseña en la red social.!</value>
   </data>
+  <data name="Restaurant" xml:space="preserve">
+    <value>Restaurante</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>Hora</value>
+  </data>
+  <data name="AddReservation" xml:space="preserve">
+    <value>Agregar reserva</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>correctamente</value>
+  </data>
+  <data name="DateAnt" xml:space="preserve">
+    <value>La fecha no puede ser vieja</value>
+  </data>
+  <data name="HourOutRange" xml:space="preserve">
+    <value>El restaurante no atiende a esta hora</value>
+  </data>
+  <data name="ReservationSuccess" xml:space="preserve">
+    <value>¡Creado correctamente!</value>
+  </data>
 </root>

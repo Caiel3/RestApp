@@ -334,10 +334,10 @@
     <value>Da raccolta</value>
   </data>
   <data name="NoCameraSupported" xml:space="preserve">
-    <value>Il dispositivo non supporta l&amp;#39;accesso alla fotocamera.!</value>
+    <value>Il dispositivo non supporta accesso alla fotocamera.!</value>
   </data>
   <data name="NoGallerySupported" xml:space="preserve">
-    <value>Il dispositivo non supporta l&amp;#39;accesso alla galleria.!</value>
+    <value>Il dispositivo non support accesso alla galleria.!</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Cambia password</value>

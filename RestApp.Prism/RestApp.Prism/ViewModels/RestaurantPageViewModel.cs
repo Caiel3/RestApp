@@ -103,7 +103,10 @@ namespace RestApp.Prism.ViewModels
                     Name = p.Name,
                     CatalogueImage=p.CatalogueImage,
                     Qualifications = p.Qualifications,
-                    Restaurant=p.Restaurant
+                    Restaurant=p.Restaurant,
+                    HourStart=p.HourStart,
+                    HourFinish=p.HourFinish
+                    
                     
                 })
                 .ToList());
@@ -119,7 +122,9 @@ namespace RestApp.Prism.ViewModels
                     Name = p.Name,
                     CatalogueImage = p.CatalogueImage,
                     Qualifications=p.Qualifications,
-                    Restaurant = p.Restaurant
+                    Restaurant = p.Restaurant,
+                    HourStart = p.HourStart,
+                    HourFinish = p.HourFinish
                 })
                 .Where(p => p.Name.ToLower().Contains(Search.ToLower()))
                 .ToList());
