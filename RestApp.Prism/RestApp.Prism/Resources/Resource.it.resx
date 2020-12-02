@@ -417,4 +417,7 @@
   <data name="RecoverPasswordMessage" xml:space="preserve">
     <value>È stata inviata un'e-mail per cambiare la password.!</value>
   </data>
+  <data name="LoginValidate" xml:space="preserve">
+    <value>Devi essere loggato a</value>
+  </data>
 </root>

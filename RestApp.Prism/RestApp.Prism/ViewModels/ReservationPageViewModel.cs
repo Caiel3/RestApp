@@ -114,7 +114,9 @@ namespace RestApp.Prism.ViewModels
                 await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
                 return;
             }
-            await App.Current.MainPage.DisplayAlert(Languages.Success, Languages.ReservationSuccess, Languages.Accept);            
+            
+            await App.Current.MainPage.DisplayAlert(Languages.Success, Languages.ReservationSuccess, Languages.Accept);
+           
         }
 
         private async Task<bool> ValidateDataAsync()

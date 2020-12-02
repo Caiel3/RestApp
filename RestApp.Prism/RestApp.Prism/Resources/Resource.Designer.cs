@@ -529,6 +529,15 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must be logged in to see this..
+        /// </summary>
+        internal static string LoginValidate {
+            get {
+                return ResourceManager.GetString("LoginValidate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
         internal static string Logout {
