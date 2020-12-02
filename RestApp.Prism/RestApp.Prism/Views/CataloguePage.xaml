@@ -96,7 +96,7 @@
 
         </ScrollView>
         <Button BackgroundColor="Navy"
-                Command="{Binding AddToCartBinding}" 
+                Command="{Binding ChangePasswordCommand}" 
                 CornerRadius="10"
                 Text="{i18n:Translate Reservation}"
                 TextColor="White"

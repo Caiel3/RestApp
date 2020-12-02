@@ -143,6 +143,16 @@ namespace RestApp.Prism.Helpers
         public static string LoginFacebook => Resource.LoginFacebook;
 
         public static string ChangeOnSocialNetwork => Resource.ChangeOnSocialNetwork;
+        public static string Restaurant => Resource.Restaurant;
+        public static string Hour => Resource.Hour;
+        public static string AddReservation => Resource.AddReservation;
+        public static string DateAnt => Resource.DateAnt;
+        public static string HourOutRange => Resource.HourOutRange;
+        public static string Success => Resource.Success;
+        public static string ReservationSuccess => Resource.ReservationSuccess;
+        public static string RecoverPassword => Resource.RecoverPassword;
+        public static string RecoverPasswordMessage => Resource.RecoverPasswordMessage;
+        public static string LoginValidate => Resource.LoginValidate;
 
     }
 

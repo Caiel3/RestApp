@@ -88,13 +88,8 @@ namespace RestApp.Prism.ViewModels
             }
             else
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.LoginFirstMessage, Languages.Accept);
-                NavigationParameters parameters = new NavigationParameters
-                {
-                    { "pageReturn", nameof(AddQualificationPage) }
-                };
-
-                await _navigationService.NavigateAsync($"/{nameof(RestAppMasterDetailPage)}/NavigationPage/{nameof(LoginPage)}", parameters);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.LoginValidate, Languages.Accept);
+                _navigationService.NavigateAsync($"/{nameof(RestAppMasterDetailPage)}/NavigationPage/LoginPage");
             }
         }
     }

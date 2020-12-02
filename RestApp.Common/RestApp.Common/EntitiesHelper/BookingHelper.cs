@@ -16,15 +16,6 @@ namespace ReatApp.Web.Data.Entities
 
         public PointSaleHelper pointSale { get; set; }
 
-        [Display(Name = "Date Sent")]
-        public DateTime? DateSent { get; set; }
-
-        [Display(Name = "Date Confirmed")]
-        public DateTime? DateConfirmed { get; set; }
-
-        [DataType(DataType.MultilineText)]
-        public string Remarks { get; set; }
-
     }
 
 }

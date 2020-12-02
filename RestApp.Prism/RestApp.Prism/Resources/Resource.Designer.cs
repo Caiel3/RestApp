@@ -79,6 +79,15 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add reservation.
+        /// </summary>
+        internal static string AddReservation {
+            get {
+                return ResourceManager.GetString("AddReservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         internal static string Address {
@@ -187,11 +196,20 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User updated..
+        ///   Looks up a localized string similar to The password and the confirmation doesn&apos;t match..
         /// </summary>
         internal static string ConfirmNewPasswordError2 {
             get {
                 return ResourceManager.GetString("ConfirmNewPasswordError2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User updated..
+        /// </summary>
+        internal static string ConfirmNewPasswordError2_Duplicate_1_ {
+            get {
+                return ResourceManager.GetString("ConfirmNewPasswordError2_Duplicate[1]", resourceCulture);
             }
         }
         
@@ -246,6 +264,15 @@ namespace RestApp.Prism.Resources {
         internal static string Date {
             get {
                 return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The date cannot be old.
+        /// </summary>
+        internal static string DateAnt {
+            get {
+                return ResourceManager.GetString("DateAnt", resourceCulture);
             }
         }
         
@@ -403,6 +430,24 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hour.
+        /// </summary>
+        internal static string Hour {
+            get {
+                return ResourceManager.GetString("Hour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The restaurant does not serve at this time.
+        /// </summary>
+        internal static string HourOutRange {
+            get {
+                return ResourceManager.GetString("HourOutRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last name.
         /// </summary>
         internal static string LastName {
@@ -480,6 +525,15 @@ namespace RestApp.Prism.Resources {
         internal static string LoginFirstMessage {
             get {
                 return ResourceManager.GetString("LoginFirstMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must be logged in to see this..
+        /// </summary>
+        internal static string LoginValidate {
+            get {
+                return ResourceManager.GetString("LoginValidate", resourceCulture);
             }
         }
         
@@ -718,6 +772,24 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recover Password.
+        /// </summary>
+        internal static string RecoverPassword {
+            get {
+                return ResourceManager.GetString("RecoverPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An email was sent to change your password..
+        /// </summary>
+        internal static string RecoverPasswordMessage {
+            get {
+                return ResourceManager.GetString("RecoverPasswordMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register New User.
         /// </summary>
         internal static string Register {
@@ -772,6 +844,24 @@ namespace RestApp.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reserve created successfully.
+        /// </summary>
+        internal static string ReservationSuccess {
+            get {
+                return ResourceManager.GetString("ReservationSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restaurant.
+        /// </summary>
+        internal static string Restaurant {
+            get {
+                return ResourceManager.GetString("Restaurant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is a restaurant.
         /// </summary>
         internal static string RestaurantCheck {
@@ -813,6 +903,15 @@ namespace RestApp.Prism.Resources {
         internal static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully.
+        /// </summary>
+        internal static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
         

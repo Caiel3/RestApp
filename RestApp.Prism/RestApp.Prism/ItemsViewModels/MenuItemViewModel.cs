@@ -2,6 +2,7 @@
 using Prism.Navigation;
 using RestApp.Common.Helpers;
 using RestApp.Common.Models;
+using RestApp.Prism.Helpers;
 using RestApp.Prism.Views;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,16 @@ namespace RestApp.Prism.ItemsViewModels
                 Settings.IsLogin = false;
                 Settings.Token = null;
             }
-            await _navigationService.NavigateAsync($"/{nameof(RestAppMasterDetailPage)}/NavigationPage/{PageName}");
+            if ((PageName == nameof(ModifyUserPage) || PageName == nameof(ViewReservationPage)) && !Settings.IsLogin)
+            {
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.LoginValidate, Languages.Accept);
+                _navigationService.NavigateAsync($"/{nameof(RestAppMasterDetailPage)}/NavigationPage/LoginPage");
+            
+            }
+            else
+            {
+                await _navigationService.NavigateAsync($"/{nameof(RestAppMasterDetailPage)}/NavigationPage/{PageName}");
+            }
         }
     }
 

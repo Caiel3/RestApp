@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:i18n="clr-namespace:RestApp.Prism.Helpers"             
+             x:Class="RestApp.Prism.Views.ReservationPage"
+             Title="{Binding Title}"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <inputLayout:SfTextInputLayout Hint="{i18n:Translate Date}" 
+                ContainerType="Outlined">
+                <DatePicker
+                    Date="{Binding DateReservation}"/>                
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout Hint="{i18n:Translate Hour}"                  
+                 ContainerType="Outlined"                 >
+                <TimePicker
+                    Time="{Binding HourReservation}"/>
+            </inputLayout:SfTextInputLayout>
+            <Button Command="{Binding SaveReservationCommand}"                        
+                        Style="{StaticResource SecondaryButton}"
+                        Text="{i18n:Translate AddReservation}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

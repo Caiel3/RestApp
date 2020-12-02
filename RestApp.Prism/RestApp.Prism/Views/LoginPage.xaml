@@ -20,15 +20,15 @@
             <ScrollView>
                 <StackLayout>                   
                         <Grid>
-                            <sfavatar:SfAvatarView ContentType="Custom"
-                           ImageSource="ic_launcher"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"   
-                           HeightRequest="100"
-                           CornerRadius="50"
-                           WidthRequest="100" 
-                           Background="{StaticResource ColorSecondary}"/>
-                        </Grid>                                      
+                        <sfavatar:SfAvatarView ContentType="Custom"
+                               ImageSource="ic_launcher"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"   
+                               HeightRequest="100"
+                               CornerRadius="50"
+                               WidthRequest="100" 
+                               Background="{StaticResource ColorSecondary}"/>
+                    </Grid>                                      
 
                     <StackLayout VerticalOptions="CenterAndExpand">
                         <inputLayout:SfTextInputLayout Hint="{i18n:Translate Email}" 

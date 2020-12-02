@@ -1,17 +1,25 @@
-﻿using Prism.Navigation;
+﻿using Newtonsoft.Json;
+using Prism.Navigation;
 using ReatApp.Web.Data.Entities;
 using RestApp.Common.Enums;
 using RestApp.Common.Helpers;
-using RestApp.Common.Request;
 using RestApp.Common.Responses;
 using RestApp.Common.Services;
 using RestApp.Prism.Helpers;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using Xamarin.Essentials;
 
 namespace RestApp.Prism.ViewModels
 {
     internal class ViewReservationPageViewModel : ViewModelBase
     {
-        public ViewReservationPageViewModel(INavigationService navigationService)
+        private readonly IApiService _apiService;
+        private bool _isRunning;
+        private List<BookingResponse> _myBookings;
+        private ObservableCollection<BookingResponse> _bookings;
+        public ViewReservationPageViewModel(INavigationService navigationService,IApiService apiService )
             : base(navigationService)
         {
             Title = Languages.ViewReservation;
@@ -47,7 +55,7 @@ namespace RestApp.Prism.ViewModels
                 "/api",
                 "/Booking",
                 JsonConvert.DeserializeObject<TokenResponse>(Settings.Token).Token);
-
+            UserResponse user = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token).User;
             IsRunning = false;
             if (!response.IsSuccess)
             {
@@ -57,16 +65,30 @@ namespace RestApp.Prism.ViewModels
                     Languages.Accept);
                 return;
             }
-            _myBookings = (List<BookingResponse>)response.Result;
-            bookings = new ObservableCollection<BookingResponse>(_myBookings.Select(p => new BookingResponse()
+            if (user.UserType ==UserType.RestaurantAdmin)
             {
+                _myBookings = (List<BookingResponse>)response.Result;
+                bookings = new ObservableCollection<BookingResponse>(_myBookings.Select(p => new BookingResponse()
+                {
 
-                Date =p.Date,
-                pointSale=p.pointSale,
-                User=p.User
+                    Date = p.Date,
+                    pointSale = p.pointSale,
+                    User = p.User
+
+                }).Where(u => u.User.Id == user.Id)
+                  .ToList());
+            }
+            else { 
+                _myBookings = (List<BookingResponse>)response.Result;
+                bookings = new ObservableCollection<BookingResponse>(_myBookings.Select(p => new BookingResponse()
+                {
+
+                    Date =p.Date,
+                    pointSale=p.pointSale,
+                    User=p.User
                 
-            })               
-                .Where(u => u.User.Id==JsonConvert.DeserializeObject<TokenResponse>(Settings.Token).User.Id).ToList());
+                }).ToList());
+            }
         }   
     }
 }

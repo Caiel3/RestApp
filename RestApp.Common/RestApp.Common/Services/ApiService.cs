@@ -55,6 +55,49 @@ namespace RestApp.Common.Services
                 };
             }
         }
+
+        public async Task<Response> GetListReservationsAsync<T>(
+           string urlBase,
+           string servicePrefix,
+           string controller,
+           string token)
+        {
+            try
+            {
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase),
+                };
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+                string url = $"{servicePrefix}{controller}";
+                HttpResponseMessage response = await client.GetAsync(url);
+                string result = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = result,
+                    };
+                }
+
+                List<T> list = JsonConvert.DeserializeObject<List<T>>(result);
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = list
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+            }
+        }
         public async Task<Response> GetTokenAsync(string urlBase, string servicePrefix, string controller, TokenRequest request)
         {
             try
@@ -268,6 +311,73 @@ namespace RestApp.Common.Services
                 };
             }
         }
+        public async Task<Response> PostReservationsAsync(string urlBase, string servicePrefix, string controller, ReservationRequest reservationRequest, string token)
+        {
+            try
+            {
+                string request = JsonConvert.SerializeObject(reservationRequest);
+                StringContent content = new StringContent(request, Encoding.UTF8, "application/json");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase)
+                };
 
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+                string url = $"{servicePrefix}{controller}";
+                HttpResponseMessage response = await client.PostAsync(url, content);
+                string result = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = result,
+                    };
+                }
+
+                BookingHelper booking = JsonConvert.DeserializeObject<BookingHelper>(result);
+
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = booking
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+            }
+        }
+        public async Task<Response> RecoverPasswordAsync(string urlBase, string servicePrefix, string controller, EmailRequest emailRequest)
+        {
+            try
+            {
+                string request = JsonConvert.SerializeObject(emailRequest);
+                StringContent content = new StringContent(request, Encoding.UTF8, "application/json");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase)
+                };
+
+                string url = $"{servicePrefix}{controller}";
+                HttpResponseMessage response = await client.PostAsync(url, content);
+                string answer = await response.Content.ReadAsStringAsync();
+                Response obj = JsonConvert.DeserializeObject<Response>(answer);
+                return obj;
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
     }
 }

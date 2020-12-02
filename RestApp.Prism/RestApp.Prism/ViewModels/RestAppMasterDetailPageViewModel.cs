@@ -87,56 +87,7 @@ namespace RestApp.Prism.ViewModels
             }
 
 
-        };
-            if (Settings.IsRestaurant)
-            {
-                menus = new List<Menu> {
-                    
-                    new Menu
-                    {
-                        Icon = "ic_fingerprint",
-                        PageName = $"{nameof(LoginPage)}",
-                        Title = Settings.IsLogin? Languages.Logout : Languages.Login
-                    },
-                    new Menu
-                    {
-                        Icon = "ic_person",
-                        PageName = $"{nameof(ModifyUserPage)}",
-                        Title = Languages.ModifyUser
-                    },
-                    new Menu
-                    {
-                        Icon = "ic_restaurant",
-                        PageName = $"{nameof(RestaurantPage)}",
-                        Title = Languages.Restaurants
-                    },
-                    new Menu
-                    {
-                        Icon = "ic_chrome_reader_mode",
-                        PageName = $"{nameof(ViewReservationPage)}",
-                        Title = Languages.ViewReservation
-                    },
-                    new Menu
-                    {
-                        Icon = "ic_room",
-                        PageName = $"{nameof(RestaurantLocationPage)}",
-                        Title = Languages.RestaurantsLocation
-                    },
-                    new Menu
-                        {
-                            Icon = "ic_alarm_on",
-                            PageName = $"{nameof(BussinesHourPage)}",
-                            Title = Languages.BussinesHour
-                        },
-                    new Menu
-                        {
-                            Icon = "ic_add_circle",
-                            PageName = $"{nameof(AddPointSalePage)}",
-                            Title = Languages.AddPoinSale
-                        }
-
-                };
-            }
+        };          
 
             Menus = new ObservableCollection<MenuItemViewModel>(
                 menus.Select(m => new MenuItemViewModel(_navigationService)

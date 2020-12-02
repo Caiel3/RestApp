@@ -1,5 +1,6 @@
 ﻿
 using RestApp.Common.Enums;
+using RestApp.Common.Responses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -45,6 +46,11 @@ namespace ReatApp.Web.Data.Entities
 
         [Display(Name = "User")]
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
+
+        public static implicit operator UserHelper_temp(TokenResponse v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  xmlns:prism="http://prismlibrary.com"
-                  xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                  xmlns:prism="http://prismlibrary.com"                  
                   xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                   prism:ViewModelLocator.AutowireViewModel="True"
+                  xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
                   x:Class="RestApp.Prism.Views.RestAppMasterDetailPage">
 
     <MasterDetailPage.Master>
@@ -23,18 +23,15 @@
                 <StackLayout Orientation="Horizontal">
                     <Image HeightRequest="80"
                          Source="ic_launcher"/>
-                    <ffimageloading:CachedImage Aspect="AspectFill"
-                                    Source="{Binding User.ImageFullPath}" 
-                                    CacheDuration= "50"
-                                    HeightRequest="100"
-                                    Margin="5"
-                                    RetryCount= "3"
-                                    RetryDelay= "600"
-                                    WidthRequest="100">
-                        <ffimageloading:CachedImage.Transformations>
-                            
-                        </ffimageloading:CachedImage.Transformations>
-                    </ffimageloading:CachedImage>
+                    <sfavatar:SfAvatarView ContentType="Custom"
+                               ImageSource="{Binding User.ImageFullPath}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"   
+                               HeightRequest="100"
+                               CornerRadius="50"
+                               WidthRequest="100" 
+                               Background="{StaticResource ColorSecondary}"/>
+            
                 </StackLayout>
 
                 <Label FontAttributes="Bold"

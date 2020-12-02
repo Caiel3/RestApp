@@ -390,4 +390,34 @@
   <data name="ChangeOnSocialNetwork" xml:space="preserve">
     <value>Gli utenti registrati dai social network, devono cambiare la foto o la password sul social network.!</value>
   </data>
+  <data name="Restaurant" xml:space="preserve">
+    <value>Ristorante</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>Ora</value>
+  </data>
+  <data name="AddReservation" xml:space="preserve">
+    <value>Aggiungi prenotazione</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>operazione completata</value>
+  </data>
+  <data name="DateAnt" xml:space="preserve">
+    <value>La data non può essere vecchia</value>
+  </data>
+  <data name="HourOutRange" xml:space="preserve">
+    <value>Il ristorante non serve in questo momento</value>
+  </data>
+  <data name="ReservationSuccess" xml:space="preserve">
+    <value>Riserva creata con successo!</value>
+  </data>
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>Recupera password</value>
+  </data>
+  <data name="RecoverPasswordMessage" xml:space="preserve">
+    <value>È stata inviata un'e-mail per cambiare la password.!</value>
+  </data>
+  <data name="LoginValidate" xml:space="preserve">
+    <value>Devi essere loggato a</value>
+  </data>
 </root>
