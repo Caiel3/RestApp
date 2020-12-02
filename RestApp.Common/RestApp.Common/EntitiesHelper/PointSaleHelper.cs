@@ -34,7 +34,9 @@ namespace ReatApp.Web.Data.Entities
         [DataType(DataType.MultilineText)]
         public string Remarks { get; set; }
 
-
+        public TimeSpan HourStart { get; set; }
+     
+        public TimeSpan HourFinish { get; set; }
         public ICollection<Catalogue> CatalogueImage { get; set; }
 
         [DisplayName("Point Sale Images Number")]
