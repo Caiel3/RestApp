@@ -150,6 +150,8 @@ namespace RestApp.Prism.Helpers
         public static string HourOutRange => Resource.HourOutRange;
         public static string Success => Resource.Success;
         public static string ReservationSuccess => Resource.ReservationSuccess;
+        public static string RecoverPassword => Resource.RecoverPassword;
+        public static string RecoverPasswordMessage => Resource.RecoverPasswordMessage;
 
     }
 

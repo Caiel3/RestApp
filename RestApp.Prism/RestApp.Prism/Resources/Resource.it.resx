@@ -411,4 +411,10 @@
   <data name="ReservationSuccess" xml:space="preserve">
     <value>Riserva creata con successo!</value>
   </data>
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>Recupera password</value>
+  </data>
+  <data name="RecoverPasswordMessage" xml:space="preserve">
+    <value>È stata inviata un'e-mail per cambiare la password.!</value>
+  </data>
 </root>
