@@ -50,9 +50,11 @@ namespace ReatApp.Web.Helpers
                 Name = model.Name,
                 Latitude = model.Latitude,
                 Longitude = model.Longitude,
+                HourFinish = model.HourFinish,
+                HourStart = model.HourStart,
                 Tables = model.Tables,
                 Address = model.Address,
-                CatalogueImage = model.CatalogueImage
+                CatalogueImage = model.CatalogueImage                
             };
         }
 
@@ -68,6 +70,8 @@ namespace ReatApp.Web.Helpers
                 Description = pointSale.Description,
                 Id = pointSale.Id,
                 Name = pointSale.Name,
+                HourFinish = pointSale.HourFinish,
+                HourStart = pointSale.HourStart,
                 Latitude = pointSale.Latitude,
                 Longitude = pointSale.Longitude,
                 Tables = pointSale.Tables,

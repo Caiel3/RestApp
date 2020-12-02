@@ -24,10 +24,10 @@ namespace ReatApp.Web.Data.Entities
         public int Tables { get; set; }
 
         [DisplayFormat(DataFormatString = "{hh:mm}")]
-        public DateTime HourStart { get; set; }
+        public TimeSpan HourStart { get; set; }
 
         [DisplayFormat(DataFormatString = "{hh:mm}")]
-        public DateTime HourFinish { get; set; }
+        public TimeSpan HourFinish { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N4}")]
         public double Latitude { get; set; }
