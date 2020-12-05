@@ -121,7 +121,7 @@ namespace RestApp.Prism.ViewModels
 
         private async Task<bool> ValidateDataAsync()
         {
-            if (HourReservation>PointSale.HourStart.TimeOfDay && HourReservation < PointSale.HourFinish.TimeOfDay)
+            if (HourReservation>PointSale.HourStart && HourReservation < PointSale.HourFinish)
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.HourOutRange, Languages.Accept);
                 return false;
